@@ -12,18 +12,15 @@ public class PlayerHealth : MonoBehaviour
 	{
 		if (health <= 0) 
 		{
-			Debug.Log ("hoi");
-
 			LevelReset ();
 		}
 	}
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag ("Enemy"))
+		if (other.transform.tag == "Enemy")
 		{
-			Debug.Log ("hoi");
-			health -= 22;
+			health -= 25;
 		}
 	}
 
