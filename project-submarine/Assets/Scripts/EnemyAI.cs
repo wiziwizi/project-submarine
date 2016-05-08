@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
@@ -23,11 +23,15 @@ public class EnemyAI : MonoBehaviour {
 	void  Update()
 	{
 		transform.LookAt (_player.transform.position);
-		transform.position += transform.forward * MoveSpeed * Time.deltaTime;
+
 		if (playerHit == true)
 		{
 			transform.position -= transform.forward * MoveSpeed * 2 * Time.deltaTime;
-			Invoke ("Reverse", 2f);
+			Invoke ("Reverse", 0.5f);
+		}
+		else
+		{
+			transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 		}
 	}
 
@@ -45,4 +49,3 @@ public class EnemyAI : MonoBehaviour {
 		}
 	}
 }
-
