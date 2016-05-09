@@ -1115,6 +1115,7 @@ GameObject:
   - 92: {fileID: 9225398}
   - 124: {fileID: 12430362}
   - 81: {fileID: 8163882}
+  - 114: {fileID: 11495602}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2583,7 +2584,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.78676474, g: 0.0057850406, b: 0.0057850406, a: 0.019607844}
+  m_BackGroundColor: {r: 0.26146194, g: 0.43914506, b: 0.6838235, a: 0.019607844}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2878,7 +2879,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: de0c448f48b2c2a46871e8e76a2c8315, type: 2}
+  - {fileID: 2100000, guid: 367930dc6203cf346b6617d1218033e8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3658,7 +3659,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: de0c448f48b2c2a46871e8e76a2c8315, type: 2}
+  - {fileID: 2100000, guid: 367930dc6203cf346b6617d1218033e8, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -3762,7 +3763,7 @@ MeshRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: de0c448f48b2c2a46871e8e76a2c8315, type: 2}
+  - {fileID: 2100000, guid: 9b20b3e1d6b49e34fbe56b1b44f96aa3, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1
@@ -4358,6 +4359,18 @@ MonoBehaviour:
   Projectile: {fileID: 11458532, guid: 25838a9187de37b48ae0a38302446c39, type: 2}
   shootRate: 0.1
   destroysound: {fileID: 0}
+--- !u!114 &11495602
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 177278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f778d0102e422740ab853db18380722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  underwaterLevel: 8
 --- !u!114 &11498912
 MonoBehaviour:
   m_ObjectHideFlags: 1
