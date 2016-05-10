@@ -3,21 +3,24 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour {
 
-	public float speedF = 0f; //speed forward.
-	public float speedB = 0f; //speed forward.
-	public float speedU = 0f; //speed forward.
-	public float speedD = 0f; //speed forward.
-	public float rotationR = 0f; //speed rotatie Rechts.
-	public float rotationL = 0f; //speed rotatie Links.
-	public float max = 20f; //max speed forward.
-	public float maxB = 10f; //max speed back.
-	public float maxR = 40f; //max speed rotatie.
+	private float speedF = 0f; //speed forward.
+	private float speedB = 0f; //speed forward.
+	private float speedU = 0f; //speed forward.
+	private float speedD = 0f; //speed forward.
+	private float rotationR = 0f; //speed rotatie Rechts.
+	private float rotationL = 0f; //speed rotatie Links.
+	private float max = 20f; //max speed forward.
+	private float maxB = 10f; //max speed back.
+	private float maxR = 40f; //max speed rotatie.
 
-	public float accel = .2f; //acceleratie Algemeen.
-	public float accelR = 0.5f; //acceleratie rotatie.
-	public float accelB = .2f; //acceleratie back.
+	private float accel = .2f; //acceleratie Algemeen.
+	private float accelR = 0.5f; //acceleratie rotatie.
+	private float accelB = .2f; //acceleratie back.
 	private Rigidbody _rigidbody;
 
+	private int RotateF;
+	private int RotateB;
+	private Quaternion target;
 
 
 
@@ -111,6 +114,7 @@ public class PlayerMovement : MonoBehaviour {
 			if (speedD > maxB)
 			{
 				speedD = maxB;
+
 			}
 		}
 		else
@@ -125,6 +129,7 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.Space))
 		{
+			//RotateB = Input.GetKey (KeyCode.Space);
 			speedU += accel;
 
 			if (speedU > maxB)
@@ -142,13 +147,15 @@ public class PlayerMovement : MonoBehaviour {
 			}
 		}
 
+		//target = Quaternion.Euler (RotateF, 0, RotateB);
+
 		transform.Translate (Vector3.forward * speedF * Time.deltaTime);
 		transform.Translate (Vector3.back * speedB * Time.deltaTime);
 		transform.Translate (Vector3.down * speedD * Time.deltaTime);
 		transform.Translate (Vector3.up * speedU * Time.deltaTime);
 		transform.Rotate (Vector3.down * rotationL * Time.deltaTime);
 		transform.Rotate (Vector3.up * rotationR * Time.deltaTime);
-
+		//transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime);
 	}
 
 }
