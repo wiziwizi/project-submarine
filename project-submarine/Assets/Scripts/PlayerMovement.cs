@@ -20,14 +20,13 @@ public class PlayerMovement : MonoBehaviour {
 
 	private int RotateF;
 	private int RotateB;
-	private Quaternion target;
-
-
+	private Vector3 Straight;
 
 	void Awake()
 	{
 		//reference with rigidbody
 		_rigidbody = GetComponent<Rigidbody>();
+		Vector3 Straight = new Vector3(0, transform.rotation.y, 0);
 
 	}
 	void Update()
@@ -155,7 +154,7 @@ public class PlayerMovement : MonoBehaviour {
 		transform.Translate (Vector3.up * speedU * Time.deltaTime);
 		transform.Rotate (Vector3.down * rotationL * Time.deltaTime);
 		transform.Rotate (Vector3.up * rotationR * Time.deltaTime);
-		//transform.rotation = Quaternion.Slerp (transform.rotation, target, Time.deltaTime);
+		transform.Rotate (Straight);
 	}
 
 }

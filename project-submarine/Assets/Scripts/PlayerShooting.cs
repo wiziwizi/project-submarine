@@ -13,7 +13,6 @@ public class PlayerShooting : MonoBehaviour {
 
 
 
-
 	private float nextFireTime;
 
 	void Start()
@@ -24,10 +23,23 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Update()
 	{
+
 		if (Input.GetMouseButton (0) && (Time.time >= nextFireTime)) {
 			Shoot ();
 		}
+	}
 
+	void FixedUpdate()
+	{
+		Plane plane = new Plane (Vector3.up, Vector3.zero);
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		float distance;
+		if (plane.Raycast (ray, out distance))
+		{
+			Vector3 point = ray.GetPoint (distance);
+			transform.LookAt(point);
+			Debug.Log (point);
+		}
 
 	}
 	private void Shoot()
@@ -35,10 +47,6 @@ public class PlayerShooting : MonoBehaviour {
 		projectile bullet = Instantiate (Projectile, muzzle.position, muzzle.rotation) as projectile;
 		bullet.SetSpeed (bulletSpeed);
 		nextFireTime = Time.time + shootRate;
-
-
-
-
 	}
 
 }
