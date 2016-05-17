@@ -78,8 +78,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477690}
-  - 114: {fileID: 11489538}
   - 54: {fileID: 5448122}
+  - 114: {fileID: 11489538}
   - 65: {fileID: 6570636}
   m_Layer: 0
   m_Name: Enemy_Normal_1_GB
@@ -444,7 +444,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 172754}

@@ -38,7 +38,7 @@ public class PlayerShooting : MonoBehaviour {
 		{
 			Vector3 point = ray.GetPoint (distance);
 			transform.LookAt(point);
-			Debug.Log (point);
+			//Debug.Log (point);
 		}
 
 	}
@@ -47,6 +47,8 @@ public class PlayerShooting : MonoBehaviour {
 		projectile bullet = Instantiate (Projectile, muzzle.position, muzzle.rotation) as projectile;
 		bullet.SetSpeed (bulletSpeed);
 		nextFireTime = Time.time + shootRate;
+		print ("ron");
+		audioSource.Play ();
 	}
 
 }
