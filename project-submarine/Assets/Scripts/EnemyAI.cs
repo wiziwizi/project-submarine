@@ -5,18 +5,21 @@ public class EnemyAI : MonoBehaviour {
 
 	//private NavMeshAgent _navMeshAgent;
 	private GameObject _player;
+	private GameObject _spawner;
 	private bool playerHit;
 	//private int waypointIndex = 0;
 
 	//public Transform[] waypoints; 
 	public  float MoveSpeed;
+	private _Spawner spawnScript;
 
+		
 	// Use this for initialization
 	void Awake () 
 	{
 		//_navMeshAgent = GetComponent<NavMeshAgent> ();
 		_player = GameObject.FindGameObjectWithTag ("Player");
-
+		_spawner = GameObject.FindGameObjectWithTag ("EnemySpawnPoint");	
 	}
 
 	// Update is called once per frame
@@ -47,5 +50,14 @@ public class EnemyAI : MonoBehaviour {
 		{
 			playerHit = true;
 		}
+		if (other.gameObject.tag == "projectile") {
+			
+			Destroy (gameObject);
+			Debug.Log ("Raak");
+			Destroy (other.gameObject);
+			_spawner.GetComponent<_Spawner> ().OnEnemyDeath ();
+
+		}
+
 	}
 }
