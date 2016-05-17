@@ -5,7 +5,7 @@ public class _Spawner : MonoBehaviour {
 
 	public Wave[] waves;
 	public EnemyAI enemy;
-
+	private GameObject[] gos;
 
 	Wave currentWave;
 	int currentWaveNumber;
@@ -13,6 +13,7 @@ public class _Spawner : MonoBehaviour {
 	int enemiesRemainingToSpawn;
 	int enemiesRemainingAlive;
 	float nextSpawnTime;
+
 
 	void Start() {
 		NextWave ();
@@ -26,19 +27,29 @@ public class _Spawner : MonoBehaviour {
 
 			EnemyAI spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as EnemyAI;
 			//spawnedEnemy.OnDeath += OnEnemyDeath;
+			gos = GameObject.FindGameObjectsWithTag("Enemy");
+
 		}
 	}
 
 	public void OnEnemyDeath() {
 		enemiesRemainingAlive --;
-		print ("0001110");
 
-		if (enemiesRemainingAlive == 0) {
+		gos = GameObject.FindGameObjectsWithTag("Enemy");
+		print (gos.Length);
+		//if (enemiesRemainingAlive == 0) {
+		if (gos.Length == 1)
+		{
 			print ("000110");
 
-			
-			NextWave();
+
+			StartCoroutine (TimeDelay ());
 		}
+
+	}
+	IEnumerator TimeDelay(){
+		yield return new WaitForSeconds (5);
+		NextWave ();
 	}
 
 	void NextWave() {
