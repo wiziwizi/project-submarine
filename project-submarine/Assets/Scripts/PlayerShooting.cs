@@ -38,7 +38,7 @@ public class PlayerShooting : MonoBehaviour {
 		{
 			Vector3 point = ray.GetPoint (distance);
 			transform.LookAt(point);
-			Debug.Log (point);
+			//Debug.Log (point);
 		}
 
 	}

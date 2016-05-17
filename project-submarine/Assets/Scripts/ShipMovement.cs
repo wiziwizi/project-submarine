@@ -5,12 +5,14 @@ public class ShipMovement : MonoBehaviour {
 
 	private float tumbleL = 0;
 	private float tumbleR = 0;
+	private float accel = 0.4f;
 
-	private float accel = .2f;
-
-	private float max = 45;
+	private float maxL = 30;
+	private float maxR = -30;
 
 	private Rigidbody _rigidbody;
+	private float xRot;
+	private float yRot;
 
 	// Use this for initialization
 	void Awake ()
@@ -21,35 +23,15 @@ public class ShipMovement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		xRot = transform.rotation.x;
+		yRot = transform.rotation.y;
+
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
 			tumbleL += accel;
-			if (tumbleL > max)
+			if (tumbleL > maxL)
 			{
-				tumbleL = max;
-			}
-			if (transform.rotation.z > 45)
-			{
-				transform.Rotate (transform.rotation.x,transform.rotation.y,45);
-			}
-		}
-
-		else
-		{
-			tumbleL -= accel;
-			if(tumbleL < 0)
-			{
-				tumbleL = 0;
-			}
-		}
-
-		if (!Input.GetKey(KeyCode.A) || !Input.GetKeyUp(KeyCode.LeftArrow))
-		{
-			tumbleR += accel;
-
-			if (transform.rotation.z < 360 && transform.rotation.z > 46)
-			{
-				transform.Rotate (transform.rotation.x,transform.rotation.y,0);
+				tumbleL = maxL;
 			}
 		}
 
@@ -64,11 +46,20 @@ public class ShipMovement : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
 		{
-			
+			tumbleR -= accel;
+			if (tumbleR < maxR)
+			{
+				tumbleR = maxR;
+			}
 		}
+
 		else
 		{
-			
+			tumbleR += accel;
+			if(tumbleR > 0)
+			{
+				tumbleR = 0;
+			}
 		}
 
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
@@ -89,9 +80,10 @@ public class ShipMovement : MonoBehaviour {
 			
 		}
 
-		transform.Rotate (Vector3.forward * tumbleL * Time.deltaTime);
+		transform.localRotation = Quaternion.Euler (Vector3.forward * (tumbleL +tumbleR));
 
-		transform.Rotate (Vector3.back * tumbleR * Time.deltaTime);
-		//transform.Translate (Vector3.back * speedB * Time.deltaTime);
+		//transform.Rotate (Vector3.back * tumbleR * Time.deltaTime);
+
+		//transform.rotation = Quaternion.Euler(new Vector3(xRot, yRot, Mathf.Clamp (Time.time, 0, 20)));
 	}
 }

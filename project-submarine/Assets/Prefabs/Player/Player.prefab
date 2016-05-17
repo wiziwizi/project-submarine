@@ -265,7 +265,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &120594
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -377,6 +377,21 @@ GameObject:
   - 65: {fileID: 6574540}
   m_Layer: 0
   m_Name: vleugel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &131884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 412300}
+  m_Layer: 0
+  m_Name: Ship
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -842,7 +857,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &167230
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -1067,7 +1082,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &176940
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
@@ -1503,8 +1518,23 @@ Transform:
   - {fileID: 453628}
   - {fileID: 430718}
   - {fileID: 410974}
+  m_Father: {fileID: 412300}
+  m_RootOrder: 0
+--- !u!4 &412300
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 411010}
+  - {fileID: 448974}
+  - {fileID: 427266}
   m_Father: {fileID: 412350}
-  m_RootOrder: 3
+  m_RootOrder: 1
 --- !u!4 &412350
 Transform:
   m_ObjectHideFlags: 1
@@ -1512,13 +1542,11 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169518}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 36.0058, y: 38.5, z: 3.55}
+  m_LocalPosition: {x: -7.8, y: 27.7, z: -31.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406704}
-  - {fileID: 448974}
-  - {fileID: 427266}
-  - {fileID: 411010}
+  - {fileID: 412300}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!4 &413328
@@ -1776,7 +1804,7 @@ Transform:
   - {fileID: 469804}
   - {fileID: 413328}
   - {fileID: 476736}
-  m_Father: {fileID: 412350}
+  m_Father: {fileID: 412300}
   m_RootOrder: 2
 --- !u!4 &427668
 Transform:
@@ -2031,7 +2059,7 @@ Transform:
   - {fileID: 440404}
   - {fileID: 499724}
   - {fileID: 483408}
-  m_Father: {fileID: 412350}
+  m_Father: {fileID: 412300}
   m_RootOrder: 1
 --- !u!4 &451990
 Transform:
