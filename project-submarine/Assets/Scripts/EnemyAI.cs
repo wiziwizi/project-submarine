@@ -9,6 +9,7 @@ public class EnemyAI : MonoBehaviour {
 	private bool playerHit;
 	private GameObject[] sp;
 	private int i;
+	private UIController UIController;
 	//private int waypointIndex = 0;
 
 	//public Transform[] waypoints; 
@@ -22,6 +23,7 @@ public class EnemyAI : MonoBehaviour {
 		//_navMeshAgent = GetComponent<NavMeshAgent> ();
 		_player = GameObject.FindGameObjectWithTag ("Player");
 		sp = GameObject.FindGameObjectsWithTag ("EnemySpawnPoint");
+		GameObject UIController = GameObject.FindWithTag ("UIController");
 
 			
 	}
@@ -57,8 +59,9 @@ public class EnemyAI : MonoBehaviour {
 		if (other.gameObject.tag == "projectile") {
 			
 			Destroy (gameObject);
-			Debug.Log ("Raak");
 			Destroy (other.gameObject);
+			UIController.AddScore (20);
+
 
 			for (i = 0; i < sp.Length; i++)
 			{
