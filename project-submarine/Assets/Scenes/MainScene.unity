@@ -2926,11 +2926,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 406704, guid: 6246d0d165fe1c346acec1447d532da9, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -24.4
+      value: -14.5
       objectReference: {fileID: 0}
     - target: {fileID: 406704, guid: 6246d0d165fe1c346acec1447d532da9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 20.7
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 406704, guid: 6246d0d165fe1c346acec1447d532da9, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.09059693
+      objectReference: {fileID: 0}
+    - target: {fileID: 406704, guid: 6246d0d165fe1c346acec1447d532da9, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.9958877
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8296524, guid: 6246d0d165fe1c346acec1447d532da9, type: 2}
@@ -5936,7 +5944,7 @@ GameObject:
   - 114: {fileID: 1933005286}
   m_Layer: 0
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: UIConttroler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

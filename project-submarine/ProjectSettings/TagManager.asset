@@ -9,7 +9,7 @@ TagManager:
   - EnemySpawnPoint
   - projectile
   - Enemy1
-  - New Tag
+  - UIController
   layers:
   - Default
   - TransparentFX
