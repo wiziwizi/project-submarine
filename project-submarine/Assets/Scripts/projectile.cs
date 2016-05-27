@@ -3,13 +3,12 @@ using System.Collections;
 
 public class projectile : MonoBehaviour 
 {
-	private float _speed;
+	private float _speed = 90f;
 
 
-	void Start(){
-		Destroy(gameObject, 5f);
+	void OnEnable(){
+		Invoke ("Remove", 20f);
 	}
-
 
 	void Update() {
 		transform.Translate (Vector3.forward * _speed * Time.deltaTime);
@@ -20,21 +19,20 @@ public class projectile : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.CompareTag("Enemy")) {
-
-			Debug.Log ("hij");
-
-
-			Destroy(other.gameObject);
-			Destroy(gameObject);
-
-
+		if(!other.CompareTag ("Player"))
+		{
+			Remove ();
 		}
-
-
-
 	}
 
+	void Remove()
+	{
+		gameObject.SetActive(false);
+	}
 
+	void OnDisable()
+	{
+		CancelInvoke ();
+	}
 }
 

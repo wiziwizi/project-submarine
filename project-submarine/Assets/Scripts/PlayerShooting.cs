@@ -7,12 +7,9 @@ public class PlayerShooting : MonoBehaviour {
 	public Transform muzzle;
 	public projectile Projectile;
 	public float shootRate;
-	private AudioSource audioSource;
 	public AudioClip destroysound;
 
-
-
-
+	private AudioSource audioSource;
 	private float nextFireTime;
 
 	void Start()
@@ -44,10 +41,13 @@ public class PlayerShooting : MonoBehaviour {
 	}
 	private void Shoot()
 	{
-		projectile bullet = Instantiate (Projectile, muzzle.position, muzzle.rotation) as projectile;
-		bullet.SetSpeed (bulletSpeed);
+		GameObject obj = NewObjectPooler.current.GetPooledObject ();
+
+		if (obj == null) return;
+		obj.transform.position = muzzle.position;
+		obj.transform.rotation = muzzle.rotation;
+		obj.SetActive(true);
 		nextFireTime = Time.time + shootRate;
-		print ("ron");
 		audioSource.Play ();
 	}
 

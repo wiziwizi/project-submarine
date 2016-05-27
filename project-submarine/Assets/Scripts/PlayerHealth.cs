@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour 
 {
-	public float health = 100f;
+	public static float health = 100;
 
 	private bool playerDead;
 
@@ -12,21 +12,14 @@ public class PlayerHealth : MonoBehaviour
 	{
 		if (health <= 0) 
 		{
+			health = 100;
 			LevelReset ();
-		}
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if (other.transform.tag == "Enemy")
-		{
-			health -= 25;
 		}
 	}
 
 	void LevelReset()
 	{
-		SceneManager.LoadScene("MainScene");
+		SceneManager.LoadScene("EndScene");
 	}
 
 }

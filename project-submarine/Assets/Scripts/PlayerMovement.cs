@@ -9,30 +9,18 @@ public class PlayerMovement : MonoBehaviour {
 	private float speedD = 0f; //speed forward.
 	private float rotationR = 0f; //speed rotatie Rechts.
 	private float rotationL = 0f; //speed rotatie Links.
-	private float rotationKR = 0f; //speed rotatie Rechts.
-	private float rotationKL = 0f; //speed rotatie Links.
 	private float max = 20f; //max speed forward.
-	private float maxN = -20f; //max speed forward.
 	private float maxB = 10f; //max speed back.
 	private float maxR = 40f; //max speed rotatie.
 
 	private float accel = .2f; //acceleratie Algemeen.
-	private float accelR = 0.5f; //acceleratie rotatie.
+	private float accelR = .5f; //acceleratie rotatie.
 	private float accelB = .2f; //acceleratie back.
-
-	private Rigidbody _rigidbody;
 
 	private int RotateF;
 	private int RotateB;
 	private Quaternion original;
 
-	void Awake()
-	{
-		//reference with rigidbody
-		_rigidbody = GetComponent<Rigidbody>();
-		original = transform.rotation;
-
-	}
 	void Update()
 	{
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))

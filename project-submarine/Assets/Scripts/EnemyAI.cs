@@ -3,16 +3,10 @@ using System.Collections;
 
 public class EnemyAI : MonoBehaviour {
 
-	//private NavMeshAgent _navMeshAgent;
 	private GameObject _player;
-	private GameObject _spawner;
 	private bool playerHit;
-	private GameObject[] sp;
 	private int i;
-	private UIController UIController;
-	//private int waypointIndex = 0;
-
-	//public Transform[] waypoints; 
+	public float Damage;
 	public  float MoveSpeed;
 	private _Spawner spawnScript;
 
@@ -20,55 +14,43 @@ public class EnemyAI : MonoBehaviour {
 	// Use this for initialization
 	void Awake () 
 	{
-		//_navMeshAgent = GetComponent<NavMeshAgent> ();
 		_player = GameObject.FindGameObjectWithTag ("Player");
-		sp = GameObject.FindGameObjectsWithTag ("EnemySpawnPoint");
-		GameObject UIController = GameObject.FindWithTag ("UIController");
-
-			
 	}
 
 	// Update is called once per frame
 	void  Update()
 	{
+		Debug.Log (transform.forward);
 		transform.LookAt (_player.transform.position);
-
+		Debug.Log (playerHit);
 		if (playerHit == true)
 		{
-			transform.position -= transform.forward * MoveSpeed * 2 * Time.deltaTime;
+			Debug.Log ("Check2: "+playerHit);
+			//transform.position -= transform.forward * MoveSpeed * Time.deltaTime;
+			PlayerHealth.health -= Damage;
 			Invoke ("Reverse", 0.5f);
 		}
 		else
 		{
 			transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 		}
+
 	}
 
 	void Reverse()
 	{
+		Debug.Log ("Check3: "+playerHit);
 		transform.position += transform.forward * MoveSpeed * Time.deltaTime;
 		playerHit = false;
+
 	}
 
 	void OnTriggerEnter (Collider other)
 	{
-		if (other.transform.tag == "Player")
+		if (other.gameObject.tag == "Player")
 		{
 			playerHit = true;
+			Debug.Log ("Check4: "+playerHit);
 		}
-		if (other.gameObject.tag == "projectile") {
-			
-			Destroy (gameObject);
-			Destroy (other.gameObject);
-			UIController.AddScore (20);
-
-
-			for (i = 0; i < sp.Length; i++)
-			{
-				sp [i].GetComponent<_Spawner> ().OnEnemyDeath ();
-			}
-				
-		}
-
 	}
 }

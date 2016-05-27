@@ -273,7 +273,7 @@ GameObject:
   - 4: {fileID: 427266}
   m_Layer: 0
   m_Name: Engines
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -390,9 +390,10 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 412300}
+  - 114: {fileID: 11432722}
   m_Layer: 0
   m_Name: Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,10 +864,9 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 448974}
-  - 64: {fileID: 6425590}
   m_Layer: 0
   m_Name: Romp
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1090,7 +1090,7 @@ GameObject:
   - 4: {fileID: 411010}
   m_Layer: 0
   m_Name: Weapons
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1461,8 +1461,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 188230}
-  m_LocalRotation: {x: 0.20765185, y: 0, z: 0, w: 0.9782028}
-  m_LocalPosition: {x: -0.033071518, y: 7.37, z: -11.82}
+  m_LocalRotation: {x: 0.09059693, y: 0, z: 0, w: 0.9958877}
+  m_LocalPosition: {x: -0.033071518, y: 6.1, z: -14.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 412350}
@@ -1541,8 +1541,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169518}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.8, y: 27.7, z: -31.5}
+  m_LocalRotation: {x: 0, y: -0.9999926, z: 0, w: 0.0038568238}
+  m_LocalPosition: {x: -325.3, y: -0.7, z: -83.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 406704}
@@ -4174,23 +4174,11 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &6425590
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 167230}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Convex: 1
-  m_Mesh: {fileID: 0}
 --- !u!65 &6510344
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -4264,6 +4252,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad9af8116e51ab34898002ef079aed98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11432722
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 131884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fbfba85a7b0d3c49ad02712fd16577b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11472290
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4275,7 +4274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c4c749aa1dbff841afe9a3ef05eb7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &11485800
 MonoBehaviour:
   m_ObjectHideFlags: 1

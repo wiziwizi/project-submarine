@@ -5,27 +5,18 @@ public class ShipMovement : MonoBehaviour {
 
 	private float tumbleL = 0;
 	private float tumbleR = 0;
+	private float tumbleU = 0;
+	private float tumbleD = 0;
 	private float accel = 0.4f;
 
 	private float maxL = 30;
 	private float maxR = -30;
+	private float maxU = 20;
+	private float maxD = -20;
 
-	private Rigidbody _rigidbody;
-	private float xRot;
-	private float yRot;
-
-	// Use this for initialization
-	void Awake ()
-	{
-		_rigidbody = GetComponent<Rigidbody>();
-	}
-	
 	// Update is called once per frame
 	void Update ()
 	{
-		xRot = transform.rotation.x;
-		yRot = transform.rotation.y;
-
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
 			tumbleL += accel;
@@ -64,26 +55,41 @@ public class ShipMovement : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 		{
-			
+			tumbleD -= accel;
+			if (tumbleD < maxD)
+			{
+				tumbleD = maxD;
+			}
 		}
+
 		else
 		{
-			
+			tumbleD += accel;
+			if(tumbleD > 0)
+			{
+				tumbleD = 0;
+			}
 		}
 
 		if (Input.GetKey(KeyCode.Space))
 		{
-			
+			tumbleU += accel;
+			if (tumbleU > maxU)
+			{
+				tumbleU = maxU;
+			}
 		}
+
 		else
 		{
-			
+			tumbleU -= accel;
+			if(tumbleU < 0)
+			{
+				tumbleU = 0;
+			}
 		}
 
-		transform.localRotation = Quaternion.Euler (Vector3.forward * (tumbleL +tumbleR));
-
-		//transform.Rotate (Vector3.back * tumbleR * Time.deltaTime);
-
-		//transform.rotation = Quaternion.Euler(new Vector3(xRot, yRot, Mathf.Clamp (Time.time, 0, 20)));
+		transform.localRotation = Quaternion.Euler (Vector3.forward * (tumbleL + tumbleR));
+		//transform.localRotation = Quaternion.Euler (Vector3.right * (tumbleU + tumbleD));
 	}
 }

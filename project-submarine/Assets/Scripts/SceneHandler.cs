@@ -10,6 +10,8 @@ public class SceneHandler : MonoBehaviour {
 	public Canvas optionMenu;
 	public Button startText;
 	public Button exitText;
+	public Text WaveNumber;
+	public Text Score;
 
 	void Start()
 	{
@@ -21,10 +23,12 @@ public class SceneHandler : MonoBehaviour {
 		quitMenu.enabled = false;
 		optionMenu.enabled = false;
 
+		WaveNumber.text = _Spawner.WaveNumber.ToString();
+		Score.text = UIController.score.ToString();
 	}
 	public void NewGame()
 	{
-		SceneManager.LoadScene ("Main");
+		SceneManager.LoadScene ("MainScene");
 	}
 
 	public void OptionMenu()
@@ -56,6 +60,6 @@ public class SceneHandler : MonoBehaviour {
 
 	public void Menu()
 	{
-		SceneManager.LoadScene ("Menu");
+		SceneManager.LoadScene ("MenuScene");
 	}
 }

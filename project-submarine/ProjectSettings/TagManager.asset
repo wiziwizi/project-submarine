@@ -10,6 +10,7 @@ TagManager:
   - projectile
   - Enemy1
   - UIController
+  - enviroment
   layers:
   - Default
   - TransparentFX
