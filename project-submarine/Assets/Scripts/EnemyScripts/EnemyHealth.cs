@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Image=UnityEngine.UI.Image;
 
 public class EnemyHealth : MonoBehaviour 
 {
@@ -12,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
 	private bool CanHit = true;
 	private GameObject[] sp;
 	private GameObject _canvas;
+	private Image HealthBar;
 	private UIController uiController;
 
 	public GameObject particles;
@@ -40,6 +42,7 @@ public class EnemyHealth : MonoBehaviour
 	{
 		if (other.transform.tag == "projectile" && CanHit == true)
 		{
+			HealthBar.fillAmount -= 0.20f;
 			health -= Damage;
 		}
 	}
