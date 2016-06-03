@@ -20,9 +20,29 @@ public class PlayerMovement : MonoBehaviour {
 	private int RotateF;
 	private int RotateB;
 	private Quaternion original;
+	private Rigidbody rigidbody;
+
+	public GameObject particles;
+	private ParticleSystem particleEmission;
+
+	void Start()
+	{
+		rigidbody = GetComponent<Rigidbody> ();
+		particleEmission = particles.GetComponent<ParticleSystem> ();
+	}
 
 	void Update()
 	{
+
+		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+			{
+				particleEmission.Play();
+			}
+			else
+			{
+				particleEmission.Stop();
+			}
+
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
 			speedF += accel;
@@ -43,7 +63,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
 		{
-			rotationL += accelR; 
+			rotationL += accelR;
 
 			if (rotationL > maxR)
 			{
@@ -62,7 +82,7 @@ public class PlayerMovement : MonoBehaviour {
 		}
 		if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
 		{
-			rotationR += accelR; 
+			rotationR += accelR;
 
 			if (rotationR > maxR)
 			{
@@ -121,7 +141,6 @@ public class PlayerMovement : MonoBehaviour {
 
 		if (Input.GetKey(KeyCode.Space))
 		{
-			//RotateB = Input.GetKey (KeyCode.Space);
 			speedU += accel;
 
 			if (speedU > maxB)
@@ -138,13 +157,17 @@ public class PlayerMovement : MonoBehaviour {
 				speedU = 0;
 			}
 		}
+	}
 
-		transform.Translate (Vector3.forward * speedF * Time.deltaTime);
-		transform.Translate (Vector3.back * speedB * Time.deltaTime);
-		transform.Translate (Vector3.down * speedD * Time.deltaTime);
-		transform.Translate (Vector3.up * speedU * Time.deltaTime);
-		transform.Rotate (Vector3.down * rotationL * Time.deltaTime);
-		transform.Rotate (Vector3.up * rotationR * Time.deltaTime);
+	void FixedUpdate()
+	{
+		rigidbody.MovePosition (rigidbody.position + (transform.TransformDirection( Vector3.forward) * speedF * Time.fixedDeltaTime));
+		rigidbody.MovePosition (rigidbody.position + (transform.TransformDirection( Vector3.back) * speedB * Time.fixedDeltaTime));
+		rigidbody.MovePosition (rigidbody.position + (transform.TransformDirection( Vector3.down) * speedD * Time.fixedDeltaTime));
+		rigidbody.MovePosition (rigidbody.position + (transform.TransformDirection( Vector3.up) * speedU * Time.fixedDeltaTime));
+
+		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.down * rotationL * Time.fixedDeltaTime));
+		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.up * rotationR * Time.fixedDeltaTime));
 	}
 
 }

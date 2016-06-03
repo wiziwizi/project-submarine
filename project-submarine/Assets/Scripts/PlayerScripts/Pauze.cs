@@ -15,9 +15,8 @@ public class Pauze : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Pause == false && Input.GetKeyDown(KeyCode.P))
+		if (Pause == false && Input.GetKeyDown(KeyCode.Escape))
 		{
-			Debug.Log (Time.timeScale);
 			Time.timeScale = 0f;
 			Pause = true;
 			PauseMenu.enabled = true;

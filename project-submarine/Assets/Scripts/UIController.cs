@@ -4,12 +4,19 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour {
 
-	public Text Score;
-	public Text EnemiesRemaining;
-	public Text WaveText;
-	public Text WaveNumber;
+	[SerializeField]
+	private Text Score;
+	[SerializeField]
+	private Text EnemiesRemaining;
+	[SerializeField]
+	private Text WaveText;
+	[SerializeField]
+	private Text WaveNumber;
+	[SerializeField]
+	private Text PickupText;
 	private GameObject[] er;
 	public static int score;
+	public static int Pickups;
 	private float ERemaining;
 
 	// Use this for initialization
@@ -23,6 +30,7 @@ public class UIController : MonoBehaviour {
 
 	void Update()
 	{
+		PickupText.text = ":" + Pickups;
 		WaveText.text = _Spawner.WaveNumber.ToString();
 		er = GameObject.FindGameObjectsWithTag ("Enemy");
 		EnemiesRemaining.text = er.Length + ":";
