@@ -13,6 +13,7 @@ public class EnemyHealth : MonoBehaviour
 	private bool CanHit = true;
 	private GameObject[] sp;
 	private GameObject _canvas;
+	[SerializeField]
 	private Image HealthBar;
 	private UIController uiController;
 
