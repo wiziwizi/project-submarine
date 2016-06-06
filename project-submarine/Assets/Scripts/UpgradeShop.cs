@@ -148,6 +148,7 @@ public class UpgradeShop : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
+		Debug.Log (CanShop);
 		Selection.transform.Translate(Vector3.right * Speed * Time.deltaTime);
 		if (SpeedPlus == true)
 		{
@@ -181,7 +182,7 @@ public class UpgradeShop : MonoBehaviour {
 
 		if (CanShop == true)
 		{
-			if (Input.GetKey (KeyCode.E))
+			if (Input.GetKey(KeyCode.E))
 			{
 				Pauze.Pause = true;
 				Text.SetActive (false);

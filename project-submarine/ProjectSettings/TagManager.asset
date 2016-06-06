@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Player
   - Enemy
   - EnemySpawnPoint
   - projectile
   - Enemy1
   - UIController
   - enviroment
+  - Shop
   layers:
   - Default
   - TransparentFX
