@@ -129,7 +129,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169890}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -338.89172, y: -1.5691214, z: 51.683876}
+  m_LocalPosition: {x: -307.1, y: 37.8, z: 23.437859}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 486126}
@@ -386,13 +386,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e8ed568b3f7aaa3498d63f4a5c1feaee, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!114 &11406774
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -404,10 +404,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b31931bce34c45bdd500d41092bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 40
-  Damage: 20
+  health: 100
+  Damage: 50
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
-  HealthBar: {fileID: 0}
+  HealthBar: {fileID: 11404380}
   particles: {fileID: 187180}
 --- !u!114 &11428642
 MonoBehaviour:
@@ -437,7 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 10
-  MoveSpeed: 12
+  MoveSpeed: 10
 --- !u!114 &11460152
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,7 +449,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fe9aafedd67d4a97dc26fc2415f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
 --- !u!114 &11469702
 MonoBehaviour:
   m_ObjectHideFlags: 1

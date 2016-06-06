@@ -15,15 +15,11 @@ public class Pauze : MonoBehaviour {
 
 	void Update ()
 	{
-		if (Pause == false && Input.GetKeyDown(KeyCode.Escape))
+		if (!Pause && Input.GetKeyDown(KeyCode.Escape))
 		{
 			Time.timeScale = 0f;
 			Pause = true;
 			PauseMenu.enabled = true;
-		}
-		if (Pause == true && Input.GetKeyDown(KeyCode.Escape))
-		{
-			UnPause ();
 		}
 	}
 

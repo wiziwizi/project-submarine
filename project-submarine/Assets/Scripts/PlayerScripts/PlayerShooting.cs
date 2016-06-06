@@ -8,6 +8,9 @@ public class PlayerShooting : MonoBehaviour {
 	public projectile Projectile;
 	public float shootRate;
 
+
+	RaycastHit hit;
+
 	private AudioSource audioSource;
 	private float nextFireTime;
 
@@ -16,6 +19,7 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Start()
 	{
+		hit = new RaycastHit(); 
 		nextFireTime = 0;
 		audioSource = GetComponent<AudioSource>();
 		particleEmission = particles.GetComponent<ParticleSystem> ();
@@ -25,7 +29,7 @@ public class PlayerShooting : MonoBehaviour {
 	{
 		if (Pauze.Pause == false)
 		{
-		if (Input.GetMouseButton (0) && (Time.time >= nextFireTime))
+			if (Input.GetMouseButton (0) && (Time.time >= nextFireTime))
 			{
 				Shoot ();
 				particleEmission.Play ();
@@ -39,13 +43,12 @@ public class PlayerShooting : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		Plane plane = new Plane (Vector3.up, Vector3.zero);
+		//Plane plane = new Plane (Vector3.up, Vector3.zero);
 		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
 		float distance;
-		if (plane.Raycast (ray, out distance))
+		if(Physics.Raycast(ray, out hit, 400.0f))
 		{
-			Vector3 point = ray.GetPoint (distance);
-			transform.LookAt(point);
+			transform.LookAt(hit.point);
 		}
 
 	}
@@ -61,8 +64,3 @@ public class PlayerShooting : MonoBehaviour {
 	}
 
 }
-
-
-
-
-

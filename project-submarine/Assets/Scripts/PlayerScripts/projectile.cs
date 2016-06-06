@@ -19,13 +19,9 @@ public class projectile : MonoBehaviour
 	}
 	void OnTriggerEnter(Collider other)
 	{
-		Debug.Log (other);
-		if(!other.CompareTag("Player"))
+		if(!other.CompareTag ("Shop"))
 		{
-			if(!other.CompareTag ("Shop"))
-			{
-				Remove ();
-			}
+			Remove ();
 		}
 	}
 

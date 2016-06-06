@@ -31,6 +31,7 @@ public class EnemyHealth : MonoBehaviour
 
 	void Update()
 	{
+		
 		if (health <= 0) 
 		{
 			CanHit = false;
@@ -43,8 +44,8 @@ public class EnemyHealth : MonoBehaviour
 	{
 		if (other.transform.tag == "projectile" && CanHit == true)
 		{
-			HealthBar.fillAmount -= 0.20f;
 			health -= Damage;
+			HealthBar.fillAmount = health / 100f;
 		}
 	}
 

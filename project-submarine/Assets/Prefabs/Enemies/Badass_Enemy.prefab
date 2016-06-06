@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -345.85287, y: -3.9077501, z: 44.005707}
+  m_LocalPosition: {x: -366.2241, y: 12.61, z: -66.78981}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22416774}
@@ -427,10 +427,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58b31931bce34c45bdd500d41092bfd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 200
-  Damage: 10
+  health: 100
+  Damage: 5
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
-  HealthBar: {fileID: 0}
+  HealthBar: {fileID: 11460624}
   particles: {fileID: 190338}
 --- !u!114 &11434796
 MonoBehaviour:
@@ -443,7 +443,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a6fe9aafedd67d4a97dc26fc2415f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
 --- !u!114 &11438874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,13 +500,13 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 21300000, guid: e8ed568b3f7aaa3498d63f4a5c1feaee, type: 3}
-  m_Type: 0
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
 --- !u!114 &11471586
 MonoBehaviour:
   m_ObjectHideFlags: 1
