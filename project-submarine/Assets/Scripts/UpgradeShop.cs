@@ -61,7 +61,7 @@ public class UpgradeShop : MonoBehaviour {
 	private int current = 0;
 	private bool SpeedPlus;
 	private bool SpeedMin;
-	private bool CanShop;
+	public static bool CanShop;
 	private float Speed;
 
 	void Awake()
@@ -82,67 +82,74 @@ public class UpgradeShop : MonoBehaviour {
 		Camera2.enabled = false;
 	}
 
-	// Update is called once per frame
-	void OnTriggerEnter (Collider other)
-	{
-		if (other.gameObject.CompareTag("Player"))
-		{
-			CanShop = true;
-		}
-	}
-
-	void OnTriggerExit (Collider other)
-	{
-		if (other.gameObject.CompareTag("Player"))
-		{
-			CanShop = false;
-		}
-	}
-
 	public void Upgrade()
 	{
-		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
+		if (UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
-			if(Weapon1.activeInHierarchy)
-			{
+			if (Weapon1.activeInHierarchy) {
 				WeaponE0.SetActive (false);
 				WeaponE1.SetActive (true);
-				Weapon1.SetActive(false);
-				Weapon2.SetActive(true);
-				UpgradeCostWeapon += 10;
+				Weapon1.SetActive (false);
+				Weapon2.SetActive (true);
 				UIController.Pickups -= UpgradeCostWeapon;
+				UpgradeCostWeapon += 10;
 			}
-
+		}
+		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
+		{
 			if(Weapon2.activeInHierarchy)
 			{
 				WeaponE1.SetActive (false);
 				WeaponE2.SetActive (true);
 				Weapon2.SetActive(false);
 				Weapon3.SetActive(true);
+				UIController.Pickups -= UpgradeCostWeapon;
 				UpgradeCostWeapon += 15;
+			}
+		}
+		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
+		{
+			if(Weapon3.activeInHierarchy)
+			{
+				WeaponE2.SetActive (false);
+				WeaponE3.SetActive (true);
+				Weapon3.SetActive(false);
+				SpeedPlus = true;
 				UIController.Pickups -= UpgradeCostWeapon;
 			}
 		}
 
-		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
+		if (UIController.Pickups >= UpgradeCostEngine && current == 1)
 		{
-			if(Engine1.activeInHierarchy)
-			{
+			if (Engine1.activeInHierarchy) {
 				EngineE0.SetActive (false);
 				EngineE1.SetActive (true);
-				Engine1.SetActive(false);
-				Engine2.SetActive(true);
-				UpgradeCostEngine += 10;
+				Engine1.SetActive (false);
+				Engine2.SetActive (true);
 				UIController.Pickups -= UpgradeCostEngine;
+				UpgradeCostEngine += 10;
 			}
-
+		}
+		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
+		{
 			if(Engine2.activeInHierarchy)
 			{
 				EngineE1.SetActive (false);
 				EngineE2.SetActive (true);
 				Engine2.SetActive(false);
 				Engine3.SetActive(true);
+				UIController.Pickups -= UpgradeCostEngine;
 				UpgradeCostEngine += 15;
+			}
+		}
+		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
+		{
+			if(Engine3.activeInHierarchy)
+			{
+				EngineE2.SetActive (false);
+				EngineE3.SetActive (true);
+				Engine3.SetActive(false);
+				SpeedMin = true;
 				UIController.Pickups -= UpgradeCostEngine;
 			}
 		}

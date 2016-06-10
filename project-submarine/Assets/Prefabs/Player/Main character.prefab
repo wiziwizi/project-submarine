@@ -386,6 +386,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 452238}
+  - 114: {fileID: 11468086}
   m_Layer: 0
   m_Name: Null
   m_TagString: Untagged
@@ -516,6 +517,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 410134}
+  - 114: {fileID: 11481638}
   m_Layer: 0
   m_Name: Null_1
   m_TagString: Untagged
@@ -1889,6 +1891,30 @@ MonoBehaviour:
   particlesEngine4: {fileID: 106426}
   particlesEngine5: {fileID: 117306}
   particlesEngine6: {fileID: 169362}
+--- !u!114 &11468086
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 173800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5424db4bab6b1a541a5f157e6f95d000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 1}
+--- !u!114 &11481638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 189232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5424db4bab6b1a541a5f157e6f95d000, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotation: {x: 0, y: 0, z: 1}
 --- !u!114 &11488436
 MonoBehaviour:
   m_ObjectHideFlags: 1
