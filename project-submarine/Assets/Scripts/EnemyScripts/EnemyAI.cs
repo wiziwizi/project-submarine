@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Image=UnityEngine.UI.Image;
 
 public class EnemyAI : MonoBehaviour {
 
@@ -10,6 +11,10 @@ public class EnemyAI : MonoBehaviour {
 	private float ForwardSpeed;
 	private Rigidbody rigidbody;
 	private AudioSource clip;
+	[SerializeField]
+	private Image HealthBar;
+	[SerializeField]
+	private ScreenShake ScreenShake;
 
 	public float Damage;
 	public float MoveSpeed;
@@ -31,6 +36,8 @@ public class EnemyAI : MonoBehaviour {
 		Debug.Log (playerHit);
 		if (playerHit == true)
 		{
+			ScreenShake.StartShake ();
+			HealthBar.fillAmount -= Damage / 100f;
 			clip.Play ();
 			Debug.Log ("Check2: "+playerHit);
 			MoveSpeed = BackSpeed;
