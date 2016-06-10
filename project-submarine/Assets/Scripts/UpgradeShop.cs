@@ -11,11 +11,11 @@ public class UpgradeShop : MonoBehaviour {
 	private GameObject Text;
 
 	[SerializeField]
-	private GameObject Weapon0;
-	[SerializeField]
 	private GameObject Weapon1;
 	[SerializeField]
 	private GameObject Weapon2;
+	[SerializeField]
+	private GameObject Weapon3;
 
 	[SerializeField]
 	private GameObject WeaponE0;
@@ -23,13 +23,15 @@ public class UpgradeShop : MonoBehaviour {
 	private GameObject WeaponE1;
 	[SerializeField]
 	private GameObject WeaponE2;
-
 	[SerializeField]
-	private GameObject Engine0;
+	private GameObject WeaponE3;
+
 	[SerializeField]
 	private GameObject Engine1;
 	[SerializeField]
 	private GameObject Engine2;
+	[SerializeField]
+	private GameObject Engine3;
 
 	[SerializeField]
 	private GameObject EngineE0;
@@ -37,6 +39,8 @@ public class UpgradeShop : MonoBehaviour {
 	private GameObject EngineE1;
 	[SerializeField]
 	private GameObject EngineE2;
+	[SerializeField]
+	private GameObject EngineE3;
 
 	[SerializeField]
 	private GameObject EngIcon;
@@ -99,18 +103,22 @@ public class UpgradeShop : MonoBehaviour {
 	{
 		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
-			if(Weapon0.activeInHierarchy)
+			if(Weapon1.activeInHierarchy)
 			{
-				Weapon0.SetActive(false);
-				Weapon1.SetActive(true);
+				WeaponE0.SetActive (false);
+				WeaponE1.SetActive (true);
+				Weapon1.SetActive(false);
+				Weapon2.SetActive(true);
 				UpgradeCostWeapon += 10;
 				UIController.Pickups -= UpgradeCostWeapon;
 			}
 
-			if(Weapon1.activeInHierarchy)
+			if(Weapon2.activeInHierarchy)
 			{
-				Weapon1.SetActive(false);
-				Weapon2.SetActive(true);
+				WeaponE1.SetActive (false);
+				WeaponE2.SetActive (true);
+				Weapon2.SetActive(false);
+				Weapon3.SetActive(true);
 				UpgradeCostWeapon += 15;
 				UIController.Pickups -= UpgradeCostWeapon;
 			}
@@ -118,18 +126,22 @@ public class UpgradeShop : MonoBehaviour {
 
 		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
 		{
-			if(Engine0.activeInHierarchy)
+			if(Engine1.activeInHierarchy)
 			{
-				Engine0.SetActive(false);
-				Engine1.SetActive(true);
+				EngineE0.SetActive (false);
+				EngineE1.SetActive (true);
+				Engine1.SetActive(false);
+				Engine2.SetActive(true);
 				UpgradeCostEngine += 10;
 				UIController.Pickups -= UpgradeCostEngine;
 			}
 
-			if(Engine1.activeInHierarchy)
+			if(Engine2.activeInHierarchy)
 			{
-				Engine1.SetActive(false);
-				Engine2.SetActive(true);
+				EngineE1.SetActive (false);
+				EngineE2.SetActive (true);
+				Engine2.SetActive(false);
+				Engine3.SetActive(true);
 				UpgradeCostEngine += 15;
 				UIController.Pickups -= UpgradeCostEngine;
 			}
@@ -169,7 +181,7 @@ public class UpgradeShop : MonoBehaviour {
 		{
 			Speed -= 0.3f;
 
-			if(Selection.transform.position.x < -1720f)
+			if(Selection.transform.position.x < -1720.6f)
 			{
 				Speed = 0f;
 				current--;

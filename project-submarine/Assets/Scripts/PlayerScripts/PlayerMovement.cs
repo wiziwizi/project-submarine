@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovement : MonoBehaviour {
-
+public class PlayerMovement : MonoBehaviour
+{
 	private float speedF = 0f; //speed forward.
 	private float speedB = 0f; //speed forward.
 	private float speedU = 0f; //speed forward.
@@ -22,26 +22,55 @@ public class PlayerMovement : MonoBehaviour {
 	private Quaternion original;
 	private Rigidbody rigidbody;
 
-	public GameObject particles;
-	private ParticleSystem particleEmission;
+	[SerializeField]
+	private GameObject particlesEngine1;
+	private ParticleSystem particleEmissionEngine1;
+
+	[SerializeField]
+	private GameObject particlesEngine2;
+	private ParticleSystem particleEmissionEngine2;
+	[SerializeField]
+	private GameObject particlesEngine3;
+	private ParticleSystem particleEmissionEngine3;
+
+	[SerializeField]
+	private GameObject particlesEngine4;
+	private ParticleSystem particleEmissionEngine4;
 
 	void Start()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
-		particleEmission = particles.GetComponent<ParticleSystem> ();
+		particleEmissionEngine1 = particlesEngine1.GetComponent<ParticleSystem> ();
+		particleEmissionEngine2 = particlesEngine2.GetComponent<ParticleSystem> ();
+		particleEmissionEngine3 = particlesEngine3.GetComponent<ParticleSystem> ();
+		particleEmissionEngine4 = particlesEngine4.GetComponent<ParticleSystem> ();
 	}
 
 	void Update()
 	{
-
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+		{
+			if(particlesEngine1.activeInHierarchy)
 			{
-				particleEmission.Play();
+				particleEmissionEngine1.Play();
 			}
-			else
+			if(particlesEngine2.activeInHierarchy)
 			{
-				particleEmission.Stop();
+				particleEmissionEngine2.Play();
+				particleEmissionEngine3.Play();
 			}
+			if(particlesEngine4.activeInHierarchy)
+			{
+				particleEmissionEngine4.Play();
+			}
+		}
+		else
+		{
+			particleEmissionEngine1.Stop();
+			particleEmissionEngine2.Stop();
+			particleEmissionEngine3.Stop();
+			particleEmissionEngine4.Stop();
+		}
 
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
@@ -169,5 +198,4 @@ public class PlayerMovement : MonoBehaviour {
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.down * rotationL * Time.fixedDeltaTime));
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.up * rotationR * Time.fixedDeltaTime));
 	}
-
 }
