@@ -8,8 +8,8 @@ Material:
   m_PrefabInternal: {fileID: 0}
   m_Name: ShieldColor
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON
-  m_LightmapFlags: 5
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _EMISSION _PARALLAXMAP
+  m_LightmapFlags: 1
   m_CustomRenderQueue: 3000
   stringTagMap:
     RenderType: Transparent
@@ -20,7 +20,7 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: c08bbed4e7609bd4e8533cd885128973, type: 3}
+          m_Texture: {fileID: 2800000, guid: d98b0f5db1473da4e94b19d08cfb3d2b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: -1}
       data:
@@ -41,7 +41,7 @@ Material:
         first:
           name: _ParallaxMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: d98b0f5db1473da4e94b19d08cfb3d2b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -55,7 +55,7 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 0}
+          m_Texture: {fileID: 2800000, guid: d98b0f5db1473da4e94b19d08cfb3d2b, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -95,7 +95,7 @@ Material:
       data:
         first:
           name: _Parallax
-        second: 0.02
+        second: 0.08
       data:
         first:
           name: _ZWrite
@@ -132,8 +132,8 @@ Material:
       data:
         first:
           name: _EmissionColor
-        second: {r: 0, g: 0, b: 0, a: 1}
+        second: {r: 0.31678805, g: 0.7352941, b: 0.23788927, a: 1}
       data:
         first:
           name: _Color
-        second: {r: 0, g: 0.6544118, b: 0.05867124, a: 0.372}
+        second: {r: 0, g: 1, b: 0.08965492, a: 0.372}
