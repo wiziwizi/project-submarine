@@ -23,9 +23,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 172008}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -26.309021, y: 7.438583, z: 2.1275494}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
+  m_LocalPosition: {x: -2.37, y: 1.74, z: -3.26}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -118,7 +118,7 @@ ParticleSystem:
         m_RotationOrder: 4
       minMaxState: 0
     startSpeed:
-      scalar: 50
+      scalar: 20
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -378,7 +378,7 @@ ParticleSystem:
       minMaxState: 3
     randomizeRotationDirection: 0
     gravityModifier: 0
-    maxNumParticles: 1000
+    maxNumParticles: 35000
     rotation3D: 0
   ShapeModule:
     serializedVersion: 2
@@ -405,12 +405,12 @@ ParticleSystem:
     serializedVersion: 2
     m_Type: 0
     rate:
-      scalar: 1000
+      scalar: 300
       maxCurve:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 1
+          value: 0.33333334
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -421,7 +421,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: 0.5
+          value: 1
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -754,17 +754,17 @@ ParticleSystem:
         m_RotationOrder: 0
       minMaxState: 2
     y:
-      scalar: 1
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
-        - time: 0.32524273
-          value: -0.08108107
+        - time: 0
+          value: -0.017589003
           inSlope: 0
           outSlope: 0
           tangentMode: 0
         - time: 1
-          value: -1
+          value: 0.42857146
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -774,8 +774,8 @@ ParticleSystem:
       minCurve:
         serializedVersion: 2
         m_Curve:
-        - time: 0.32038835
-          value: 0.16216213
+        - time: 0.06324551
+          value: 0.28914624
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1498,7 +1498,7 @@ ParticleSystemRenderer:
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_Materials:
-  - {fileID: 2100000, guid: 7c1f736c2cc648e409ce5cd7c1396f57, type: 2}
+  - {fileID: 2100000, guid: 074a5956d6b41ee4ebfb9c48905d41bb, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 1

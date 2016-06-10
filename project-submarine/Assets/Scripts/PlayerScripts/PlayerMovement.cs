@@ -36,6 +36,13 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField]
 	private GameObject particlesEngine4;
 	private ParticleSystem particleEmissionEngine4;
+	[SerializeField]
+	private GameObject particlesEngine5;
+	private ParticleSystem particleEmissionEngine5;
+
+	[SerializeField]
+	private GameObject particlesEngine6;
+	private ParticleSystem particleEmissionEngine6;
 
 	void Start()
 	{
@@ -44,6 +51,8 @@ public class PlayerMovement : MonoBehaviour
 		particleEmissionEngine2 = particlesEngine2.GetComponent<ParticleSystem> ();
 		particleEmissionEngine3 = particlesEngine3.GetComponent<ParticleSystem> ();
 		particleEmissionEngine4 = particlesEngine4.GetComponent<ParticleSystem> ();
+		particleEmissionEngine5 = particlesEngine5.GetComponent<ParticleSystem> ();
+		particleEmissionEngine6 = particlesEngine6.GetComponent<ParticleSystem> ();
 	}
 
 	void Update()
@@ -62,6 +71,12 @@ public class PlayerMovement : MonoBehaviour
 			if(particlesEngine4.activeInHierarchy)
 			{
 				particleEmissionEngine4.Play();
+				particleEmissionEngine5.Play();
+			}
+
+			if(particlesEngine6.activeInHierarchy)
+			{
+				particleEmissionEngine6.Play();
 			}
 		}
 		else
@@ -70,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
 			particleEmissionEngine2.Stop();
 			particleEmissionEngine3.Stop();
 			particleEmissionEngine4.Stop();
+			particleEmissionEngine5.Stop();
+			particleEmissionEngine6.Stop();
 		}
 
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
