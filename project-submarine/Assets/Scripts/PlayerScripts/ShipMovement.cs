@@ -11,10 +11,16 @@ public class ShipMovement : MonoBehaviour {
 
 	private float maxL = 30;
 	private float maxR = -30;
-	private float maxU = 20;
-	private float maxD = -20;
+	private float maxU = -20;
+	private float maxD = 20;
 
+	private Vector3 rotationDirection;
 	// Update is called once per frame
+
+	void Start() { 
+		rotationDirection = new Vector3 (1, 0, 1);
+		rotationDirection.Normalize ();
+	}
 	void Update ()
 	{
 		if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
@@ -53,28 +59,10 @@ public class ShipMovement : MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
-		{
-			tumbleD -= accel;
-			if (tumbleD < maxD)
-			{
-				tumbleD = maxD;
-			}
-		}
-
-		else
-		{
-			tumbleD += accel;
-			if(tumbleD > 0)
-			{
-				tumbleD = 0;
-			}
-		}
-
 		if (Input.GetKey(KeyCode.Space))
 		{
-			tumbleU += accel;
-			if (tumbleU > maxU)
+			tumbleU -= accel;
+			if (tumbleU < maxU)
 			{
 				tumbleU = maxU;
 			}
@@ -82,14 +70,32 @@ public class ShipMovement : MonoBehaviour {
 
 		else
 		{
-			tumbleU -= accel;
-			if(tumbleU < 0)
+			tumbleU += accel;
+			if(tumbleU > 0)
 			{
 				tumbleU = 0;
 			}
 		}
 
-		transform.localRotation = Quaternion.Euler (Vector3.forward * (tumbleL + tumbleR));
-		//transform.localRotation = Quaternion.Euler (Vector3.right * (tumbleU + tumbleD));
+		if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+		{
+			tumbleD += accel;
+			if (tumbleD > maxD)
+			{
+				tumbleD = maxD;
+			}
+		}
+
+		else
+		{
+			tumbleD -= accel;
+			if(tumbleD < 0)
+			{
+				tumbleD = 0;
+			}
+		}
+
+		Vector3 newRotation = new Vector3(rotationDirection.x * (tumbleU + tumbleD), 0, rotationDirection.z * (tumbleL + tumbleR));
+		transform.localRotation = Quaternion.Euler (newRotation);
 	}
 }

@@ -44,6 +44,13 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject particlesEngine6;
 	private ParticleSystem particleEmissionEngine6;
 
+	[SerializeField]
+	private GameObject Engine1;
+	[SerializeField]
+	private GameObject Engine2;
+	[SerializeField]
+	private GameObject Engine3;
+
 	void Start()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
@@ -230,5 +237,10 @@ public class PlayerMovement : MonoBehaviour
 		{
 			UpgradeShop.CanShop = false;
 		}
+	}
+
+	public void Upgrade()
+	{
+		GameObject.
 	}
 }
