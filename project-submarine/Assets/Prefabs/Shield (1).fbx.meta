@@ -11,15 +11,20 @@ ModelImporter:
     100006: Null
     100008: Shield
     100010: //RootNode
+    100012: Shield_1
     400000: Camera
     400002: Environment
     400004: Light
     400006: Null
     400008: Shield
     400010: //RootNode
+    400012: Shield_1
     2300000: Shield
+    2300002: Shield_1
     3300000: Shield
+    3300002: Shield_1
     4300000: Shield
+    4300002: Shield_1
     9500000: //RootNode
   materials:
     importMaterials: 1
