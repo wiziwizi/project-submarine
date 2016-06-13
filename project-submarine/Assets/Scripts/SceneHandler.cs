@@ -12,6 +12,7 @@ public class SceneHandler : MonoBehaviour {
 	public Button exitText;
 	public Text WaveNumber;
 	public Text Score;
+	private AudioSource audioSource;
 
 	void Start()
 	{
@@ -19,20 +20,23 @@ public class SceneHandler : MonoBehaviour {
 		exitText = exitText.GetComponent<Button> ();
 		optionMenu = optionMenu.GetComponent<Canvas> ();
 		quitMenu = quitMenu.GetComponent<Canvas> ();
+		audioSource = GetComponentInChildren<AudioSource>();
 
 		quitMenu.enabled = false;
 		optionMenu.enabled = false;
-
+		 
 		WaveNumber.text = _Spawner.WaveNumber.ToString();
 		Score.text = UIController.score.ToString();
 	}
 	public void NewGame()
-	{
+	{	
+		
 		SceneManager.LoadScene ("MainScene");
 	}
 
 	public void OptionMenu()
-	{
+	{	
+		audioSource.Play ();
 		optionMenu.enabled = true;
 		startText.enabled = false;
 		exitText.enabled = false;
@@ -40,6 +44,7 @@ public class SceneHandler : MonoBehaviour {
 
 	public void QuitMenu()
 	{
+		audioSource.Play ();
 		quitMenu.enabled = true;
 		startText.enabled = false;
 		exitText.enabled = false;
@@ -47,6 +52,7 @@ public class SceneHandler : MonoBehaviour {
 
 	public void ExitQuitMenu()
 	{
+		audioSource.Play ();
 		optionMenu.enabled = false;
 		quitMenu.enabled = false;
 		startText.enabled = true;
@@ -54,12 +60,14 @@ public class SceneHandler : MonoBehaviour {
 	}
 
 	public void Quit()
-	{
+	{	
+		audioSource.Play ();
 		Application.Quit();
 	}
 
 	public void Menu()
 	{
+		audioSource.Play ();
 		SceneManager.LoadScene ("MenuScene");
 	}
 }
