@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class UpgradeShop : MonoBehaviour {
 
@@ -53,6 +54,9 @@ public class UpgradeShop : MonoBehaviour {
 	private int UpgradeCostEngine;
 
 	[SerializeField]
+	private Text Desc;
+
+	[SerializeField]
 	private Camera Camera1;
 	[SerializeField]
 	private Camera Camera2;
@@ -63,6 +67,9 @@ public class UpgradeShop : MonoBehaviour {
 	private bool SpeedMin;
 	public static bool CanShop;
 	private float Speed;
+	private string currentWepDesc;
+	private string currentEngDesc;
+
 	[SerializeField]
 	private GameObject player;
 	private PlayerMovement playerMovement;
@@ -70,9 +77,12 @@ public class UpgradeShop : MonoBehaviour {
 
 	void Awake()
 	{
+		currentWepDesc = "+ 10 Damage";
+		currentEngDesc = "+ turning speed";
+		Desc.text = currentWepDesc;
 		playerMovement = player.GetComponent<PlayerMovement> ();
 		ShopWindow.enabled = false;
-		Camera1.enabled = true;
+//		Camera1.enabled = true;
 		Camera2.enabled = false;
 		WepIcon.SetActive (true);
 		EngIcon.SetActive (false);
@@ -180,6 +190,7 @@ public class UpgradeShop : MonoBehaviour {
 
 			if(Selection.transform.position.x > -1695f)
 			{
+				Desc.text = currentEngDesc;
 				Speed = 0f;
 				current++;
 				WepIcon.SetActive (false);
@@ -195,6 +206,7 @@ public class UpgradeShop : MonoBehaviour {
 
 			if(Selection.transform.position.x < -1720.6f)
 			{
+				Desc.text = currentWepDesc;
 				Speed = 0f;
 				current--;
 				WepIcon.SetActive (true);
