@@ -40,8 +40,6 @@ public class _Spawner : MonoBehaviour {
 		enemiesRemainingAlive --;
 
 		gos = GameObject.FindGameObjectsWithTag("Enemy");
-		print (gos.Length);
-		//if (enemiesRemainingAlive == 0) {
 		if (gos.Length == 1)
 		{
 			StartCoroutine (TimeDelay ());

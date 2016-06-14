@@ -63,9 +63,14 @@ public class UpgradeShop : MonoBehaviour {
 	private bool SpeedMin;
 	public static bool CanShop;
 	private float Speed;
+	[SerializeField]
+	private GameObject player;
+	private PlayerMovement playerMovement;
+
 
 	void Awake()
 	{
+		playerMovement = player.GetComponent<PlayerMovement> ();
 		ShopWindow.enabled = false;
 		Camera1.enabled = true;
 		Camera2.enabled = false;
@@ -84,6 +89,7 @@ public class UpgradeShop : MonoBehaviour {
 
 	public void Upgrade()
 	{
+		playerMovement.UpgradeEngine ();
 		if (UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
 			if (Weapon1.activeInHierarchy) {
@@ -167,7 +173,6 @@ public class UpgradeShop : MonoBehaviour {
 
 	void FixedUpdate ()
 	{
-		Debug.Log (CanShop);
 		Selection.transform.Translate(Vector3.right * Speed * Time.deltaTime);
 		if (SpeedPlus == true)
 		{

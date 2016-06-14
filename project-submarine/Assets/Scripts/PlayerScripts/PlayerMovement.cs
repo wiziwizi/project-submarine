@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private float accel = .2f; //acceleratie Algemeen.
 	private float accelR = .5f; //acceleratie rotatie.
-	private float accelB = .2f; //acceleratie back.
+	private float accelB = .16f; //acceleratie back.
 
 	private int RotateF;
 	private int RotateB;
@@ -239,8 +239,27 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 
-	public void Upgrade()
+	public void UpgradeEngine()
 	{
-		GameObject.
+		if(Engine1.activeInHierarchy)
+		{
+			accelR = 0.7f;
+			maxR = 60f;
+		}
+		if(Engine2.activeInHierarchy)
+		{
+			max = 30f;
+			accelR = 0.7f;
+			maxR = 60f;
+			accel = .4f;
+		}
+		if(Engine2.activeInHierarchy)
+		{
+			max = 35f;
+			accelR = 0.8f;
+			maxR = 68f;
+			accel = .6f;
+			accelB = 0.3f;
+		}
 	}
 }

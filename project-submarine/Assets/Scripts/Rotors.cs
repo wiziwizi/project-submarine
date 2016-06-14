@@ -14,7 +14,6 @@ public class Rotors : MonoBehaviour
 
 	void Update ()
 	{
-		Debug.Log (rotation.z);
 		if (rotation.z > 100)
 		{
 			rotation.z = 0;

@@ -5,16 +5,13 @@ using Image=UnityEngine.UI.Image;
 public class EnemyAI : MonoBehaviour {
 
 	private GameObject _player;
-	private bool playerHit;
+	public static bool playerHit;
 
 	private float BackSpeed;
 	private float ForwardSpeed;
 	private Rigidbody rigidbody;
 	private AudioSource clip;
-	[SerializeField]
-	private Image HealthBar;
-	[SerializeField]
-	private ScreenShake ScreenShake;
+	private ScreenShake screenShake;
 
 	public float Damage;
 	public float MoveSpeed;
@@ -25,6 +22,7 @@ public class EnemyAI : MonoBehaviour {
 		clip = GetComponent<AudioSource> ();
 		rigidbody = GetComponent<Rigidbody> ();
 		_player = GameObject.FindGameObjectWithTag ("Player");
+		screenShake = _player.GetComponent<ScreenShake> ();
 		BackSpeed = -MoveSpeed;
 		ForwardSpeed = MoveSpeed;
 	}
@@ -33,13 +31,11 @@ public class EnemyAI : MonoBehaviour {
 	void Update()
 	{
 		transform.LookAt (_player.transform.position);
-		Debug.Log (playerHit);
 		if (playerHit == true)
 		{
-			ScreenShake.StartShake ();
-			HealthBar.fillAmount -= Damage / 100f;
+			
+			screenShake.StartShake ();
 			clip.Play ();
-			Debug.Log ("Check2: "+playerHit);
 			MoveSpeed = BackSpeed;
 			PlayerHealth.health -= Damage;
 			playerHit = false;
@@ -49,7 +45,6 @@ public class EnemyAI : MonoBehaviour {
 
 	void Reverse()
 	{
-		Debug.Log ("Check3: "+playerHit);
 		MoveSpeed = ForwardSpeed;
 	}
 
@@ -57,9 +52,7 @@ public class EnemyAI : MonoBehaviour {
 	{
 		if (other.gameObject.tag == "Player")
 		{
-			
 			playerHit = true;
-			Debug.Log ("Check4: "+playerHit);
 		}
 		if (other.gameObject.tag == "projectile")
 		{
