@@ -16,10 +16,12 @@ public class Enemysoundmanager : MonoBehaviour {
 	void Update () {
 	
 	}
-	IEnumerator PlaySound(){
-		_aSource.clip = _gravel [Random.Range (0, _gravel.Length)];
+void PlaySound(){
+		/*_aSource.clip = _gravel [Random.Range (0, _gravel.Length)];
 		_aSource.Play ();
-		yield return new WaitForSeconds (_aSource.clip.length);
+		yield return new WaitForSeconds (5f);
 		StartCoroutine ("PlaySound");
+*/
 }
+
 }

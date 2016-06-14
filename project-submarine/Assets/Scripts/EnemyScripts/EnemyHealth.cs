@@ -17,6 +17,7 @@ public class EnemyHealth : MonoBehaviour
 	private Image HealthBar;
 	private UIController uiController;
 
+
 	public GameObject particles;
 	private ParticleSystem particleEmission;
 
@@ -29,6 +30,7 @@ public class EnemyHealth : MonoBehaviour
 		random = Random.value * 100f;
 	}
 
+
 	void Update()
 	{
 		
@@ -37,6 +39,7 @@ public class EnemyHealth : MonoBehaviour
 			CanHit = false;
 			particleEmission.Play ();
 			Invoke("EnemyDeath", 0.5f);
+	
 		}
 	}
 
@@ -63,5 +66,6 @@ public class EnemyHealth : MonoBehaviour
 			Instantiate (Pickup, transform.position, transform.rotation);
 		}
 	}
+		
 
 }

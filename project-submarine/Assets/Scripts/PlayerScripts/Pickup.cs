@@ -10,14 +10,14 @@ public class Pickup : MonoBehaviour
 	}
 
 
-	IEnumerator  OnTriggerEnter(Collider other)
+void  OnTriggerEnter(Collider other)
 	{
 		
 		if(other.gameObject.CompareTag("Player"))
 		{
 			audioSource.Play ();
 			UIController.Pickups++;
-			yield return new WaitForSeconds (0.5f);
+
 			Destroy (gameObject);
 		}
 	}

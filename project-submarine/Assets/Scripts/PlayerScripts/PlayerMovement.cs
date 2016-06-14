@@ -44,13 +44,6 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject particlesEngine6;
 	private ParticleSystem particleEmissionEngine6;
 
-	[SerializeField]
-	private GameObject Engine1;
-	[SerializeField]
-	private GameObject Engine2;
-	[SerializeField]
-	private GameObject Engine3;
-
 	void Start()
 	{
 		rigidbody = GetComponent<Rigidbody> ();
@@ -66,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
 		{
+			
 			if(particlesEngine1.activeInHierarchy)
 			{
 				particleEmissionEngine1.Play();
@@ -221,26 +215,5 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.down * rotationL * Time.fixedDeltaTime));
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.up * rotationR * Time.fixedDeltaTime));
-	}
-
-	void OnTriggerEnter(Collider other)
-	{
-		if(other.CompareTag("Shop"))
-		{
-			UpgradeShop.CanShop = true;
-		}
-	}
-
-	void OnTriggerExit(Collider other)
-	{
-		if(other.CompareTag("Shop"))
-		{
-			UpgradeShop.CanShop = false;
-		}
-	}
-
-	public void Upgrade()
-	{
-		GameObject.
 	}
 }

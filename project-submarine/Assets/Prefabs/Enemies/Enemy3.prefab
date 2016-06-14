@@ -647,6 +647,10 @@ MonoBehaviour:
   Damage: 20
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
   HealthBar: {fileID: 11490672}
+  _gravel:
+  - {fileID: 8300000, guid: f344791df1c6dc646a4f7dc4dd5cbe36, type: 3}
+  - {fileID: 8300000, guid: 828b6ae89fac34d40b3f6c49dc2ff7cc, type: 3}
+  - {fileID: 8300000, guid: 57527b2b95b9eb442a787956707fefed, type: 3}
   particles: {fileID: 130964}
 --- !u!114 &11488186
 MonoBehaviour:
@@ -2309,9 +2313,25 @@ Prefab:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 0}
+      propertyPath: _gravel.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _gravel.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: f344791df1c6dc646a4f7dc4dd5cbe36, type: 3}
+    - target: {fileID: 0}
+      propertyPath: _gravel.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: 828b6ae89fac34d40b3f6c49dc2ff7cc, type: 3}
+    - target: {fileID: 0}
+      propertyPath: _gravel.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 57527b2b95b9eb442a787956707fefed, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 199618}
