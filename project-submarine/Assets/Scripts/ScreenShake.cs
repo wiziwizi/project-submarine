@@ -12,7 +12,7 @@ public class ScreenShake : MonoBehaviour {
 	[SerializeField]
 	private float shakeStrength = 0.03f;
 
-	private bool shaking;
+	private bool shaking = false;
 
 	public void StartShake() {
 		//can only shake if not already shaking

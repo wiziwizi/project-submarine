@@ -8,10 +8,14 @@ public class SceneHandler : MonoBehaviour {
 
 	public Canvas quitMenu;
 	public Canvas optionMenu;
+	public Canvas creditsMenu;
+
 	public Button startText;
 	public Button exitText;
+
 	public Text WaveNumber;
 	public Text Score;
+
 	private AudioSource audioSource;
 
 	void Start()
@@ -24,6 +28,7 @@ public class SceneHandler : MonoBehaviour {
 
 		quitMenu.enabled = false;
 		optionMenu.enabled = false;
+		creditsMenu.enabled = false;
 		 
 		WaveNumber.text = _Spawner.WaveNumber.ToString();
 		Score.text = UIController.score.ToString();
@@ -69,5 +74,14 @@ public class SceneHandler : MonoBehaviour {
 	{
 		audioSource.Play ();
 		SceneManager.LoadScene ("MenuScene");
+	}
+
+	public void Credits()
+	{
+		creditsMenu.enabled = true;
+	}
+	public void ExitCredits()
+	{
+		creditsMenu.enabled = false;
 	}
 }
