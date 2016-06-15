@@ -22,6 +22,10 @@ ModelImporter:
     100028: vleugle_1_2
     100030: vleugle_2
     100032: vleugle_2_2
+    100034: body
+    100036: Null_1
+    100038: rings
+    100040: rings_2
     400000: CINEMA_4D_Editor
     400002: Cloner
     400004: //RootNode
@@ -39,6 +43,10 @@ ModelImporter:
     400028: vleugle_1_2
     400030: vleugle_2
     400032: vleugle_2_2
+    400034: body
+    400036: Null_1
+    400038: rings
+    400040: rings_2
     2300000: main_ring
     2300002: main_ring_1
     2300004: main_ring_2
@@ -48,6 +56,9 @@ ModelImporter:
     2300012: vleugle_0
     2300014: vleugle_1_2
     2300016: vleugle_2_2
+    2300018: body
+    2300020: rings
+    2300022: rings_2
     3300000: main_ring
     3300002: main_ring_1
     3300004: main_ring_2
@@ -57,6 +68,9 @@ ModelImporter:
     3300012: vleugle_0
     3300014: vleugle_1_2
     3300016: vleugle_2_2
+    3300018: body
+    3300020: rings
+    3300022: rings_2
     4300000: main_ring_2
     4300002: main_ring_1
     4300004: vleugle_0
@@ -66,6 +80,9 @@ ModelImporter:
     4300012: Tube
     4300014: main_ring
     4300016: Tube_2
+    4300018: rings
+    4300020: rings_2
+    4300022: body
   materials:
     importMaterials: 1
     materialName: 0
