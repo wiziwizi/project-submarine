@@ -11,6 +11,7 @@ public class _Spawner : MonoBehaviour {
 	public static int WaveNumber = 1;
 	public static bool NextWaveBool;
 
+
 	Wave currentWave;
 	int currentWaveNumber;
 
@@ -21,6 +22,7 @@ public class _Spawner : MonoBehaviour {
 
 	void Start() {
 		NextWave ();
+
 	}
 
 	void Update() {
@@ -53,10 +55,11 @@ public class _Spawner : MonoBehaviour {
 		NextWave ();
 	}
 
-	void NextWave()
+	public void NextWave()
 	{
 		currentWaveNumber++;
 		WaveNumber = currentWaveNumber;
+		NextWaveBool = true;
 
 		if (currentWaveNumber - 1 < waves.Length)
 		{

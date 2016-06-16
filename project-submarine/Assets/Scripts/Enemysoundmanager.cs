@@ -9,19 +9,25 @@ public class Enemysoundmanager : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_aSource = GetComponent<AudioSource> ();
+
 		StartCoroutine ("PlaySound");
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 	
 	}
-void PlaySound(){
-		/*_aSource.clip = _gravel [Random.Range (0, _gravel.Length)];
-		_aSource.Play ();
-		yield return new WaitForSeconds (5f);
-		StartCoroutine ("PlaySound");
-*/
+	IEnumerator PlaySound(){
+		
+		if (_Spawner.NextWaveBool = true) {
+		
+			_aSource.clip = _gravel [Random.Range (0, _gravel.Length)];
+			_aSource.Play ();
+			yield return new WaitForSeconds (5f);
+			StartCoroutine ("PlaySound");
+		}
+
 }
 
 }

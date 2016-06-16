@@ -13,6 +13,9 @@ public class EnemyAI : MonoBehaviour {
 	private AudioSource clip;
 	private ScreenShake screenShake;
 
+
+
+
 	public float Damage;
 	public float MoveSpeed;
 

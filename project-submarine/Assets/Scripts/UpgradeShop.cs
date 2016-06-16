@@ -99,7 +99,7 @@ public class UpgradeShop : MonoBehaviour {
 
 	public void Upgrade()
 	{
-		playerMovement.UpgradeEngine ();
+		//playerMovement.UpgradeEngine ();
 		if (UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
 			if (Weapon1.activeInHierarchy) {

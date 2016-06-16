@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 478902}
   - 198: {fileID: 19832570}
   - 199: {fileID: 19995698}
+  - 82: {fileID: 8263932}
   m_Layer: 0
   m_Name: enemykill
   m_TagString: Untagged
@@ -194,7 +195,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 199618}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 445.42014, y: 405.55826, z: 645.30347}
+  m_LocalPosition: {x: -261.8103, y: 8.041502, z: -60.53426}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 403728}
@@ -450,6 +451,80 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1983645, y: 1.297852, z: 3.1222878}
   m_Center: {x: 0.099121094, y: -0.031723022, z: -0.026123047}
+--- !u!82 &8263932
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130964}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 57527b2b95b9eb442a787956707fefed, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!82 &8299176
 AudioSource:
   m_ObjectHideFlags: 1
@@ -585,8 +660,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1200ed243b596da4e93d17feaf87260b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthBar: {fileID: 0}
-  ScreenShake: {fileID: 0}
   Damage: 15
   MoveSpeed: 8
 --- !u!114 &11446118
@@ -647,11 +720,8 @@ MonoBehaviour:
   Damage: 20
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
   HealthBar: {fileID: 11490672}
-  _gravel:
-  - {fileID: 8300000, guid: f344791df1c6dc646a4f7dc4dd5cbe36, type: 3}
-  - {fileID: 8300000, guid: 828b6ae89fac34d40b3f6c49dc2ff7cc, type: 3}
-  - {fileID: 8300000, guid: 57527b2b95b9eb442a787956707fefed, type: 3}
   particles: {fileID: 130964}
+  FX_Enemy: {fileID: 19832570}
 --- !u!114 &11488186
 MonoBehaviour:
   m_ObjectHideFlags: 1

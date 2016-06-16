@@ -16,10 +16,16 @@ public class EnemyHealth : MonoBehaviour
 	[SerializeField]
 	private Image HealthBar;
 	private UIController uiController;
+	[SerializeField]
+
 
 
 	public GameObject particles;
 	private ParticleSystem particleEmission;
+	private AudioSource audioSource;
+	[SerializeField]
+	//private GameObject Enemy;
+	private ParticleSystem FX_Enemy;
 
 	void Awake ()
 	{
@@ -28,6 +34,7 @@ public class EnemyHealth : MonoBehaviour
 		uiController = _canvas.GetComponent<UIController> ();
 		sp = GameObject.FindGameObjectsWithTag ("EnemySpawnPoint");
 		random = Random.value * 100f;
+		audioSource = GetComponent<AudioSource>();
 	}
 
 
@@ -37,7 +44,9 @@ public class EnemyHealth : MonoBehaviour
 		if (health <= 0) 
 		{
 			CanHit = false;
-			particleEmission.Play ();
+			//particleEmission.Play ();
+			Instantiate (FX_Enemy, transform.position, transform.rotation);
+
 			Invoke("EnemyDeath", 0.5f);
 	
 		}
@@ -61,11 +70,13 @@ public class EnemyHealth : MonoBehaviour
 		{
 			sp [i].GetComponent<_Spawner> ().OnEnemyDeath ();
 		}
-		if(random < 30)
+		if(random < 100)
 		{
 			Instantiate (Pickup, transform.position, transform.rotation);
+
 		}
 	}
+
 		
 
 }
