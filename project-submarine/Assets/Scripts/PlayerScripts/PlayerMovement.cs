@@ -4,9 +4,9 @@ using System.Collections;
 public class PlayerMovement : MonoBehaviour
 {
 	private float speedF = 0f; //speed forward.
-	private float speedB = 0f; //speed forward.
-	private float speedU = 0f; //speed forward.
-	private float speedD = 0f; //speed forward.
+	private float speedB = 0f; //speed Back.
+	private float speedU = 0f; //speed Up.
+	private float speedD = 0f; //speed Down.
 	private float rotationR = 0f; //speed rotatie Rechts.
 	private float rotationL = 0f; //speed rotatie Links.
 	private float max = 20f; //max speed forward.
@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
 		{
-			
+			Debug.Log (maxR);
 			if(particlesEngine1.activeInHierarchy)
 			{
 				particleEmissionEngine1.Play();
@@ -215,5 +215,45 @@ public class PlayerMovement : MonoBehaviour
 
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.down * rotationL * Time.fixedDeltaTime));
 		rigidbody.MoveRotation (rigidbody.rotation * Quaternion.Euler (Vector3.up * rotationR * Time.fixedDeltaTime));
+	}
+	public void UpgradeEngine ()
+	{
+		if(particlesEngine2.activeInHierarchy)
+		{
+			maxR = 55f;
+			accelR = .8f;
+			maxB = 20f;
+			max = 25;
+		}
+		if(particlesEngine4.activeInHierarchy)
+		{
+			max = 40f;
+			accel = .3f;
+
+		}
+
+		if(particlesEngine6.activeInHierarchy)
+		{
+			maxR = 65f;
+			accelR = 1f;
+			maxB = 20f;
+			max = 50f;
+			accel = .5f;
+		}
+	}
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag("Shop"))
+		{
+			UpgradeShop.CanShop = true;
+		}
+	}
+
+	void OnTriggerExit(Collider other)
+	{
+		if (other.CompareTag("Shop"))
+		{
+			UpgradeShop.CanShop = false;
+		}
 	}
 }

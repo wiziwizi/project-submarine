@@ -21,7 +21,13 @@ public class projectile : MonoBehaviour
 	{
 		if(!other.CompareTag ("Shop"))
 		{
-			Remove ();
+			if(!other.CompareTag("projectile"))
+			{
+				if(!other.CompareTag("Force"))
+				{
+					Remove ();
+				}
+			}	
 		}
 	}
 

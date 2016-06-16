@@ -14,6 +14,7 @@ ModelImporter:
     100012: Null
     100014: Symmetry
     100016: Tube
+    100018: Cube_3
     400000: CINEMA_4D_Editor
     400002: Cube
     400004: Cube_1
@@ -23,18 +24,22 @@ ModelImporter:
     400012: Null
     400014: Symmetry
     400016: Tube
+    400018: Cube_3
     2300000: Cube
     2300002: Cube_1
     2300004: Cube_2
     2300006: Tube
+    2300008: Cube_3
     3300000: Cube
     3300002: Cube_1
     3300004: Cube_2
     3300006: Tube
+    3300008: Cube_3
     4300000: Cube_2
     4300002: Cube_1
     4300004: Cube
     4300006: Tube
+    4300008: Cube_3
   materials:
     importMaterials: 1
     materialName: 0
