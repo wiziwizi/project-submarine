@@ -55,6 +55,8 @@ public class UpgradeShop : MonoBehaviour {
 
 	[SerializeField]
 	private Text Desc;
+	[SerializeField]
+	private Text Cost;
 
 	[SerializeField]
 	private Camera Camera1;
@@ -69,6 +71,8 @@ public class UpgradeShop : MonoBehaviour {
 	private float Speed;
 	private string currentWepDesc;
 	private string currentEngDesc;
+	private string currentWepCost;
+	private string currentEngCost;
 
 	[SerializeField]
 	private GameObject player;
@@ -77,12 +81,15 @@ public class UpgradeShop : MonoBehaviour {
 
 	void Awake()
 	{
-		currentWepDesc = "+ 10 Damage";
+		currentWepDesc = "+ 1 Lazer";
 		currentEngDesc = "+ turning speed";
+		currentWepCost =  "Amount Pickup Cost :" + UpgradeCostWeapon;
+		currentEngCost = "Amount Pickup Cost :" + UpgradeCostEngine;
 		Desc.text = currentWepDesc;
+		Cost.text = currentWepCost;
 		playerMovement = player.GetComponent<PlayerMovement> ();
 		ShopWindow.enabled = false;
-//		Camera1.enabled = true;
+		Camera1.enabled = true;
 		Camera2.enabled = false;
 		WepIcon.SetActive (true);
 		EngIcon.SetActive (false);
@@ -99,74 +106,103 @@ public class UpgradeShop : MonoBehaviour {
 
 	public void Upgrade()
 	{
-		playerMovement.UpgradeEngine ();
+		//Weapons
 		if (UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
-			if (Weapon1.activeInHierarchy) {
+			if (Weapon1.activeInHierarchy)
+			{
+				currentWepDesc = "+ 2 Lazers - Aim";
 				WeaponE0.SetActive (false);
 				WeaponE1.SetActive (true);
 				Weapon1.SetActive (false);
 				Weapon2.SetActive (true);
 				UIController.Pickups -= UpgradeCostWeapon;
-				UpgradeCostWeapon += 10;
+				UpgradeCostWeapon += 5;
+				currentWepCost =  "Amount Pickup Cost :" + UpgradeCostWeapon;
+				Desc.text = currentWepDesc;
+				Cost.text = currentWepCost;
 			}
 		}
 		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
 			if(Weapon2.activeInHierarchy)
 			{
+				currentWepDesc = "- 2 Lazers + Aim + 50% Fire rate";
 				WeaponE1.SetActive (false);
 				WeaponE2.SetActive (true);
 				Weapon2.SetActive(false);
 				Weapon3.SetActive(true);
 				UIController.Pickups -= UpgradeCostWeapon;
-				UpgradeCostWeapon += 15;
+				UpgradeCostWeapon += 5;
+				currentWepCost =  "Amount Pickup Cost :" + UpgradeCostWeapon;
+				Desc.text = currentWepDesc;
+				Cost.text = currentWepCost;
 			}
 		}
 		if(UIController.Pickups >= UpgradeCostWeapon && current == 0)
 		{
 			if(Weapon3.activeInHierarchy)
 			{
+				currentWepDesc = "Max";
 				WeaponE2.SetActive (false);
 				WeaponE3.SetActive (true);
 				Weapon3.SetActive(false);
 				SpeedPlus = true;
 				UIController.Pickups -= UpgradeCostWeapon;
+				currentWepCost = "Max";
+				Desc.text = currentWepDesc;
+				Cost.text = currentWepCost;
 			}
 		}
 
+		// Engine
 		if (UIController.Pickups >= UpgradeCostEngine && current == 1)
 		{
+			playerMovement.UpgradeEngine ();
 			if (Engine1.activeInHierarchy) {
+				currentEngDesc = "+ Speed";
 				EngineE0.SetActive (false);
 				EngineE1.SetActive (true);
 				Engine1.SetActive (false);
 				Engine2.SetActive (true);
 				UIController.Pickups -= UpgradeCostEngine;
-				UpgradeCostEngine += 10;
+				UpgradeCostEngine += 5;
+				currentEngCost =  "Amount Pickup Cost :" + UpgradeCostEngine;
+				Desc.text = currentEngDesc;
+				Cost.text = currentEngCost;
 			}
 		}
 		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
 		{
+			playerMovement.UpgradeEngine ();
 			if(Engine2.activeInHierarchy)
 			{
+				currentEngDesc = "+ Speed, + Rotation";
 				EngineE1.SetActive (false);
 				EngineE2.SetActive (true);
 				Engine2.SetActive(false);
 				Engine3.SetActive(true);
 				UIController.Pickups -= UpgradeCostEngine;
-				UpgradeCostEngine += 15;
+				UpgradeCostEngine += 5;
+				currentEngCost =  "Amount Pickup Cost :" + UpgradeCostEngine;
+				Desc.text = currentEngDesc;
+				Cost.text = currentEngCost;
 			}
 		}
 		if(UIController.Pickups >= UpgradeCostEngine && current == 1)
 		{
+			playerMovement.UpgradeEngine ();
 			if(Engine3.activeInHierarchy)
 			{
+				currentEngDesc = "Max";
 				EngineE2.SetActive (false);
 				EngineE3.SetActive (true);
 				Engine3.SetActive(false);
 				SpeedMin = true;
 				UIController.Pickups -= UpgradeCostEngine;
+				currentEngCost =  "Max";
+				Desc.text = currentEngDesc;
+				Cost.text = currentEngCost;
 			}
 		}
 	}
@@ -191,6 +227,7 @@ public class UpgradeShop : MonoBehaviour {
 			if(Selection.transform.position.x > -1695f)
 			{
 				Desc.text = currentEngDesc;
+				Cost.text = currentEngCost;
 				Speed = 0f;
 				current++;
 				WepIcon.SetActive (false);
@@ -207,6 +244,7 @@ public class UpgradeShop : MonoBehaviour {
 			if(Selection.transform.position.x < -1720.6f)
 			{
 				Desc.text = currentWepDesc;
+				Cost.text = currentWepCost;
 				Speed = 0f;
 				current--;
 				WepIcon.SetActive (true);

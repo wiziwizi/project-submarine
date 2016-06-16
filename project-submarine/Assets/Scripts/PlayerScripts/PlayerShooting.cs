@@ -3,11 +3,18 @@ using System.Collections;
 
 public class PlayerShooting : MonoBehaviour {
 
-	public float bulletSpeed;
-	public Transform muzzle;
-	public projectile Projectile;
-	public float shootRate;
-
+	[SerializeField]
+	private float bulletSpeed;
+	[SerializeField]
+	private Transform muzzle;
+	[SerializeField]
+	private projectile Projectile;
+	[SerializeField]
+	private float shootRate;
+	[SerializeField]
+	private bool Aim = false;
+	[SerializeField]
+	private GameObject Weapon4;
 
 	RaycastHit hit;
 
@@ -27,6 +34,10 @@ public class PlayerShooting : MonoBehaviour {
 
 	void Update()
 	{
+		if(Weapon4.activeInHierarchy)
+		{
+			shootRate = .25f;
+		}
 		if (Pauze.Pause == false)
 		{
 			if (Input.GetMouseButton (0) && (Time.time >= nextFireTime))
@@ -43,14 +54,14 @@ public class PlayerShooting : MonoBehaviour {
 
 	void FixedUpdate()
 	{
-		//Plane plane = new Plane (Vector3.up, Vector3.zero);
-		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-		float distance;
-		if(Physics.Raycast(ray, out hit, 400.0f))
+		if (Aim == true)
 		{
-			transform.LookAt(hit.point);
+			Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+			if(Physics.Raycast(ray, out hit, 400.0f))
+			{
+				transform.LookAt(hit.point);
+			}
 		}
-
 	}
 	private void Shoot()
 	{
@@ -62,5 +73,4 @@ public class PlayerShooting : MonoBehaviour {
 		nextFireTime = Time.time + shootRate;
 		audioSource.Play ();
 	}
-
 }

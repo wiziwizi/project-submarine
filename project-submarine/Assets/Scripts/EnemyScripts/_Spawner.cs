@@ -42,14 +42,13 @@ public class _Spawner : MonoBehaviour {
 		gos = GameObject.FindGameObjectsWithTag("Enemy");
 		if (gos.Length == 1)
 		{
-			StartCoroutine (TimeDelay ());
+			Invoke ("TimeDelay", 5f);
 		}
 
 	}
-	IEnumerator TimeDelay()
+	void TimeDelay()
 	{
 		NextWaveBool = true;
-		yield return new WaitForSeconds (5);
 		NextWave ();
 	}
 

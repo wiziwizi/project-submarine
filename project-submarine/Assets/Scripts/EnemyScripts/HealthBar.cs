@@ -3,15 +3,15 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour {
 
-	private Transform camera;
+	private Transform cam;
 
 	void Start()
 	{
-		camera = Camera.main.transform;
+		cam = Camera.main.transform;
 	}
 
 	void Update ()
 	{
-		transform.LookAt (camera);
+		transform.LookAt (cam);
 	}
 }

@@ -7,7 +7,7 @@ public class UIController : MonoBehaviour {
 	[SerializeField]
 	private Text Score;
 	[SerializeField]
-	private Text EnemiesRemaining;
+	private Text WaveNumberText;
 	[SerializeField]
 	private Text WaveText;
 	[SerializeField]
@@ -33,7 +33,7 @@ public class UIController : MonoBehaviour {
 		PickupText.text = ":" + Pickups;
 		WaveText.text = _Spawner.WaveNumber.ToString();
 		er = GameObject.FindGameObjectsWithTag ("Enemy");
-		EnemiesRemaining.text = er.Length + ":";
+		WaveNumberText.text = _Spawner.WaveNumber.ToString() + ":";
 		if(_Spawner.NextWaveBool == true)
 		{
 			WaveText.canvasRenderer.SetAlpha (1f);

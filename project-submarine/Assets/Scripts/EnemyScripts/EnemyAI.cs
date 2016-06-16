@@ -9,7 +9,7 @@ public class EnemyAI : MonoBehaviour {
 
 	private float BackSpeed;
 	private float ForwardSpeed;
-	private Rigidbody rigidbody;
+	private Rigidbody rb;
 	private AudioSource clip;
 	private ScreenShake screenShake;
 
@@ -20,7 +20,7 @@ public class EnemyAI : MonoBehaviour {
 	void Awake () 
 	{
 		clip = GetComponent<AudioSource> ();
-		rigidbody = GetComponent<Rigidbody> ();
+		rb = GetComponent<Rigidbody> ();
 		_player = GameObject.FindGameObjectWithTag ("Player");
 		screenShake = _player.GetComponent<ScreenShake> ();
 		BackSpeed = -MoveSpeed;
@@ -33,7 +33,6 @@ public class EnemyAI : MonoBehaviour {
 		transform.LookAt (_player.transform.position);
 		if (playerHit == true)
 		{
-			
 			screenShake.StartShake ();
 			clip.Play ();
 			MoveSpeed = BackSpeed;
@@ -59,13 +58,18 @@ public class EnemyAI : MonoBehaviour {
 			MoveSpeed = MoveSpeed / 2;
 			Invoke ("Reverse", 0.2f);
 		}
+		if(other.CompareTag("Shield"))
+		{
+			MoveSpeed = BackSpeed;
+			Invoke ("Reverse", 0.2f);
+		}
 	}
 
 	void FixedUpdate()
 	{
 		if (Pauze.Pause == false)
 		{
-			rigidbody.MovePosition (rigidbody.position + (transform.TransformDirection (Vector3.forward) * MoveSpeed * Time.fixedDeltaTime));
+			rb.MovePosition (rb.position + (transform.TransformDirection (Vector3.forward) * MoveSpeed * Time.fixedDeltaTime));
 		}
 	}
 }

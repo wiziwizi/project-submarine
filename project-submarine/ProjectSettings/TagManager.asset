@@ -7,10 +7,11 @@ TagManager:
   - Enemy
   - EnemySpawnPoint
   - projectile
-  - Enemy1
+  - Shield
   - UIController
   - enviroment
   - Shop
+  - Force
   layers:
   - Default
   - TransparentFX
