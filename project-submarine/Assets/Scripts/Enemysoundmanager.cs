@@ -20,7 +20,7 @@ public class Enemysoundmanager : MonoBehaviour {
 	}
 	IEnumerator PlaySound(){
 		
-		if (UIController.NextWaveBool = true) {
+		if (UIController.NextWave = true) {
 		
 			_aSource.clip = _gravel [Random.Range (0, _gravel.Length)];
 			_aSource.Play ();

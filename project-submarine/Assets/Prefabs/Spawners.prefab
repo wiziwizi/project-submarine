@@ -577,6 +577,7 @@ MonoBehaviour:
   - enemyCount: 7
     timeBetweenSpawns: 9
   enemy: {fileID: 11471586, guid: 3cd207883eced0f4d92d9806d94f6af5, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11406332
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -610,6 +611,7 @@ MonoBehaviour:
   - enemyCount: 5
     timeBetweenSpawns: 6
   enemy: {fileID: 11498162, guid: d1d238c7e7f312048b9251f8534c1752, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11416456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -665,6 +667,7 @@ MonoBehaviour:
   - enemyCount: 0
     timeBetweenSpawns: 0
   enemy: {fileID: 11435734, guid: f8961a8844b978d469b220d08c3eb863, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11436086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -698,6 +701,7 @@ MonoBehaviour:
   - enemyCount: 9
     timeBetweenSpawns: 5
   enemy: {fileID: 11437618, guid: 0967014fce44ae147b340676925ecf36, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11439716
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -731,6 +735,7 @@ MonoBehaviour:
   - enemyCount: 0
     timeBetweenSpawns: 0
   enemy: {fileID: 11435734, guid: f8961a8844b978d469b220d08c3eb863, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11462516
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -764,6 +769,7 @@ MonoBehaviour:
   - enemyCount: 9
     timeBetweenSpawns: 6
   enemy: {fileID: 11437618, guid: 0967014fce44ae147b340676925ecf36, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11463104
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,6 +803,7 @@ MonoBehaviour:
   - enemyCount: 7
     timeBetweenSpawns: 8
   enemy: {fileID: 11437618, guid: 0967014fce44ae147b340676925ecf36, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11479626
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -830,6 +837,7 @@ MonoBehaviour:
   - enemyCount: 3
     timeBetweenSpawns: 8
   enemy: {fileID: 11498162, guid: d1d238c7e7f312048b9251f8534c1752, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11498690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -863,6 +871,7 @@ MonoBehaviour:
   - enemyCount: 7
     timeBetweenSpawns: 5
   enemy: {fileID: 11498162, guid: d1d238c7e7f312048b9251f8534c1752, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!114 &11499110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -896,6 +905,7 @@ MonoBehaviour:
   - enemyCount: 7
     timeBetweenSpawns: 6
   enemy: {fileID: 11435734, guid: f8961a8844b978d469b220d08c3eb863, type: 2}
+  UICanvas: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
