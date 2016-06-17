@@ -8,8 +8,6 @@ public class _Spawner : MonoBehaviour {
 	public EnemyAI enemy;
 	private GameObject[] gos;
 	public static int WaveNumber = 1;
-	public static bool NextWaveBool;
-
 
 	Wave currentWave;
 	int currentWaveNumber;
@@ -32,32 +30,33 @@ public class _Spawner : MonoBehaviour {
 			nextSpawnTime = Time.time + currentWave.timeBetweenSpawns;
 
 			EnemyAI spawnedEnemy = Instantiate(enemy, transform.position, Quaternion.identity) as EnemyAI;
-			//spawnedEnemy.OnDeath += OnEnemyDeath;
 			gos = GameObject.FindGameObjectsWithTag("Enemy");
 		}
 	}
 
-	public void OnEnemyDeath() {
+	public void OnEnemyDeath()
+	{
 		enemiesRemainingAlive --;
 
 		gos = GameObject.FindGameObjectsWithTag("Enemy");
+		Debug.Log (gos.Length);
 		if (gos.Length == 1)
 		{
-			Invoke ("TimeDelay", 5f);
+			StartCoroutine (TimeDelay ());
 		}
 
 	}
-	void TimeDelay()
+	IEnumerator TimeDelay()
 	{
-		NextWaveBool = true;
+		UIController.NextWaveBool = true;
+		WaveNumber = currentWaveNumber;
+		yield return new WaitForSeconds (5);
 		NextWave ();
 	}
 
 	public void NextWave()
 	{
 		currentWaveNumber++;
-		WaveNumber = currentWaveNumber;
-		NextWaveBool = true;
 
 		if (currentWaveNumber - 1 < waves.Length)
 		{
@@ -65,14 +64,13 @@ public class _Spawner : MonoBehaviour {
 			enemiesRemainingToSpawn = currentWave.enemyCount;
 			enemiesRemainingAlive = enemiesRemainingToSpawn;
 		}
-
-		NextWaveBool = false;
+		UIController.NextWaveBool = false;
 	}
 
 	[System.Serializable]
-	public class Wave {
+	public class Wave
+	{
 		public int enemyCount ;
 		public float timeBetweenSpawns;
 	}
-
 }
