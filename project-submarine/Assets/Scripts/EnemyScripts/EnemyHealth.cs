@@ -66,6 +66,7 @@ public class EnemyHealth : MonoBehaviour
 		uiController.AddScore (20);
 		for (i = 0; i < sp.Length; i++)
 		{
+			Debug.Log (sp.Length);
 			sp [i].GetComponent<_Spawner> ().OnEnemyDeath ();
 		}
 		if(random < 100)

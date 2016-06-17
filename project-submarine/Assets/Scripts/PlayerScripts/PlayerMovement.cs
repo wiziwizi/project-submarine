@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
 		{
-			Debug.Log (maxR);
+			//Debug.Log (maxR);
 			if(particlesEngine1.activeInHierarchy)
 			{
 				particleEmissionEngine1.Play();

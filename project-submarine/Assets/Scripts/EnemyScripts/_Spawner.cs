@@ -21,10 +21,12 @@ public class _Spawner : MonoBehaviour {
 
 	void Start() {
 		NextWave ();
+	
 
 	}
 
 	void Update() {
+		
 
 		if (enemiesRemainingToSpawn > 0 && Time.time > nextSpawnTime)
 		{
@@ -38,32 +40,40 @@ public class _Spawner : MonoBehaviour {
 	}
 
 	public void OnEnemyDeath() {
-		enemiesRemainingAlive --;
+		enemiesRemainingAlive--;
+		Debug.Log ("Nextwave3");
+
 
 		gos = GameObject.FindGameObjectsWithTag("Enemy");
+		Debug.Log ("Enemies" +gos.Length);
 		if (gos.Length == 1)
 		{
+			Debug.Log ("Nextwave5");
 			Invoke ("TimeDelay", 5f);
 		}
 
 	}
 	void TimeDelay()
 	{
-		NextWaveBool = true;
+		//NextWaveBool = true;
 		NextWave ();
 	}
 
 	public void NextWave()
 	{
+		Debug.Log ("Nextwave");
 		currentWaveNumber++;
 		WaveNumber = currentWaveNumber;
 		NextWaveBool = true;
 
+
 		if (currentWaveNumber - 1 < waves.Length)
 		{
+			Debug.Log ("Nextwave2");
 			currentWave = waves [currentWaveNumber - 1];
 			enemiesRemainingToSpawn = currentWave.enemyCount;
 			enemiesRemainingAlive = enemiesRemainingToSpawn;
+
 		}
 
 		NextWaveBool = false;
