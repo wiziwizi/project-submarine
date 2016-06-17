@@ -48,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
 	private GameObject particlesEngine6;
 	private ParticleSystem particleEmissionEngine6;
 
+	[SerializeField]
+	private GameObject particlesEngine7;
+	private ParticleSystem particleEmissionEngine7;
+
 	void Start()
 	{
 		EToShop = EToShop.GetComponent<Canvas>();
@@ -59,15 +63,17 @@ public class PlayerMovement : MonoBehaviour
 		particleEmissionEngine4 = particlesEngine4.GetComponent<ParticleSystem> ();
 		particleEmissionEngine5 = particlesEngine5.GetComponent<ParticleSystem> ();
 		particleEmissionEngine6 = particlesEngine6.GetComponent<ParticleSystem> ();
+		particleEmissionEngine7 = particlesEngine7.GetComponent<ParticleSystem> ();
 	}
 
 	void Update()
 	{
-		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow))
+		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
 		{
 			//Debug.Log (maxR);
 			if(particlesEngine1.activeInHierarchy)
 			{
+				particleEmissionEngine7.Play ();
 				particleEmissionEngine1.Play();
 			}
 			if(particlesEngine2.activeInHierarchy)
@@ -94,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
 			particleEmissionEngine4.Stop();
 			particleEmissionEngine5.Stop();
 			particleEmissionEngine6.Stop();
+			particleEmissionEngine7.Stop();
 		}
 
 		if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow))
@@ -235,7 +242,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			max = 40f;
 			accel = .3f;
-
 		}
 
 		if(particlesEngine6.activeInHierarchy)

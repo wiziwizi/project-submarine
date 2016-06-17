@@ -69,13 +69,9 @@ public class EnemyHealth : MonoBehaviour
 			Debug.Log (sp.Length);
 			sp [i].GetComponent<_Spawner> ().OnEnemyDeath ();
 		}
-		if(random < 100)
+		if(random < 30)
 		{
 			Instantiate (Pickup, transform.position, transform.rotation);
-
 		}
 	}
-
-		
-
 }

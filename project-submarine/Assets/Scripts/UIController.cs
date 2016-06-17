@@ -16,6 +16,7 @@ public class UIController : MonoBehaviour {
 	public static int score;
 	public static int Pickups;
 	private float ERemaining;
+	public static bool NextWaveBool;
 
 	// Use this for initialization
 	void Start()
@@ -32,7 +33,8 @@ public class UIController : MonoBehaviour {
 		WaveText.text = _Spawner.WaveNumber.ToString();
 		er = GameObject.FindGameObjectsWithTag ("Enemy");
 		WaveNumberText.text = _Spawner.WaveNumber.ToString() + ":";
-		if(_Spawner.NextWaveBool == true)
+		print (NextWaveBool);
+		if(NextWaveBool == true)
 		{
 			WaveText.canvasRenderer.SetAlpha (1f);
 			WaveNumber.canvasRenderer.SetAlpha (1f);
