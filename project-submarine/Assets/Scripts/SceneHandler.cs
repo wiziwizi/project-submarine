@@ -39,6 +39,11 @@ public class SceneHandler : MonoBehaviour {
 		SceneManager.LoadScene ("MainScene");
 	}
 
+	public void Tutorial()
+	{
+		SceneManager.LoadScene ("Tutorial");
+	}
+
 	public void OptionMenu()
 	{	
 		audioSource.Play ();

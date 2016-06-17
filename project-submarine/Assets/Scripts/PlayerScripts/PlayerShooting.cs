@@ -45,10 +45,10 @@ public class PlayerShooting : MonoBehaviour {
 				Shoot ();
 				particleEmission.Play ();
 			}
-			if (!Input.GetMouseButton (0))
+			/*if (!Input.GetMouseButton (0))
 			{
 				particleEmission.Stop ();
-			}
+			}*/
 		}
 	}
 

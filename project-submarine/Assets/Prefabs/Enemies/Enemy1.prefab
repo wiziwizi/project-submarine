@@ -218,7 +218,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 149412}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -275.2427, y: 18.08, z: -73.56954}
+  m_LocalPosition: {x: -289.98474, y: 19.5, z: -51.23669}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 489966}
@@ -533,7 +533,7 @@ Animator:
   m_GameObject: {fileID: 190622}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: dc37d48b25be0184cab39b984a975baf, type: 3}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8cf060c2b152ff547b916b568d964d68, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -623,6 +623,7 @@ MonoBehaviour:
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
   HealthBar: {fileID: 11412866}
   particles: {fileID: 143464}
+  FX_Enemy: {fileID: 19870180, guid: 37befafdf356e4444b684f07b3d19784, type: 2}
 --- !u!114 &11412866
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2316,7 +2317,11 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8cf060c2b152ff547b916b568d964d68, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 149412}

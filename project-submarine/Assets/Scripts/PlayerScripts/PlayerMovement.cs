@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -21,6 +22,9 @@ public class PlayerMovement : MonoBehaviour
 	private int RotateB;
 	private Quaternion original;
 	private Rigidbody rigidbody;
+
+	[SerializeField]
+	private Canvas EToShop;
 
 	[SerializeField]
 	private GameObject particlesEngine1;
@@ -46,6 +50,8 @@ public class PlayerMovement : MonoBehaviour
 
 	void Start()
 	{
+		EToShop = EToShop.GetComponent<Canvas>();
+		EToShop.enabled = false;
 		rigidbody = GetComponent<Rigidbody> ();
 		particleEmissionEngine1 = particlesEngine1.GetComponent<ParticleSystem> ();
 		particleEmissionEngine2 = particlesEngine2.GetComponent<ParticleSystem> ();
@@ -245,6 +251,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.CompareTag("Shop"))
 		{
+			EToShop.enabled = true;
 			UpgradeShop.CanShop = true;
 		}
 	}
@@ -253,6 +260,7 @@ public class PlayerMovement : MonoBehaviour
 	{
 		if (other.CompareTag("Shop"))
 		{
+			EToShop.enabled = false;
 			UpgradeShop.CanShop = false;
 		}
 	}

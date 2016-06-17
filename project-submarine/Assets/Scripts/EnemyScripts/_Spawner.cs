@@ -7,7 +7,6 @@ public class _Spawner : MonoBehaviour {
 	public Wave[] waves;
 	public EnemyAI enemy;
 	private GameObject[] gos;
-	public Text WaveText;
 	public static int WaveNumber = 1;
 	public static bool NextWaveBool;
 

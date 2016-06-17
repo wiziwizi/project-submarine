@@ -46,9 +46,7 @@ public class EnemyHealth : MonoBehaviour
 			CanHit = false;
 			//particleEmission.Play ();
 			Instantiate (FX_Enemy, transform.position, transform.rotation);
-
-			Invoke("EnemyDeath", 0.5f);
-	
+			EnemyDeath ();
 		}
 	}
 

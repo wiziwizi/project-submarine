@@ -8,10 +8,8 @@ public class UIController : MonoBehaviour {
 	private Text Score;
 	[SerializeField]
 	private Text WaveNumberText;
-	[SerializeField]
-	private Text WaveText;
-	[SerializeField]
-	private Text WaveNumber;
+	public Text WaveText;
+	public Text WaveNumber;
 	[SerializeField]
 	private Text PickupText;
 	private GameObject[] er;

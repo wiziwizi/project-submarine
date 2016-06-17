@@ -662,7 +662,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 196454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -308.23807, y: 24.5, z: -34.809994}
+  m_LocalPosition: {x: -321.8369, y: 17.58, z: -86.48738}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 22416774}
@@ -921,6 +921,7 @@ MonoBehaviour:
   Pickup: {fileID: 195032, guid: ebac63d1f3bbaff4a841b64d76eed2c3, type: 2}
   HealthBar: {fileID: 11460624}
   particles: {fileID: 190338}
+  FX_Enemy: {fileID: 19870180, guid: 37befafdf356e4444b684f07b3d19784, type: 2}
 --- !u!114 &11434796
 MonoBehaviour:
   m_ObjectHideFlags: 1

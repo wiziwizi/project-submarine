@@ -10,6 +10,8 @@ public class UpgradeShop : MonoBehaviour {
 	private GameObject Selection;
 	[SerializeField]
 	private GameObject Text;
+	[SerializeField]
+	private Canvas EToShop;
 
 	[SerializeField]
 	private GameObject Weapon1;
@@ -220,6 +222,7 @@ public class UpgradeShop : MonoBehaviour {
 		{
 			if (Input.GetKey(KeyCode.E))
 			{
+				EToShop.enabled = false;
 				Pauze.Pause = true;
 				Text.SetActive (false);
 				ShopWindow.enabled = true;
