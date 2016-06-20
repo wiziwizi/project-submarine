@@ -260,6 +260,11 @@ public class PlayerMovement : MonoBehaviour
 			EToShop.enabled = true;
 			UpgradeShop.CanShop = true;
 		}
+
+		if (other.CompareTag("Shop"))
+		{
+			UpgradeShop.Secret = true;
+		}
 	}
 
 	void OnTriggerExit(Collider other)
@@ -268,6 +273,11 @@ public class PlayerMovement : MonoBehaviour
 		{
 			EToShop.enabled = false;
 			UpgradeShop.CanShop = false;
+		}
+
+		if (other.CompareTag("Secret"))
+		{
+			UpgradeShop.Secret = false;
 		}
 	}
 }

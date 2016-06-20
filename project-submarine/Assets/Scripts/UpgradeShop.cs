@@ -70,6 +70,7 @@ public class UpgradeShop : MonoBehaviour {
 	private bool SpeedPlus;
 	private bool SpeedMin;
 	public static bool CanShop;
+	public static bool Secret;
 	private float Speed;
 	private string currentWepDesc;
 	private string currentEngDesc;
@@ -248,6 +249,17 @@ public class UpgradeShop : MonoBehaviour {
 				ShopWindow.enabled = true;
 				Camera1.enabled = false;
 				Camera2.enabled = true;
+			}
+		}
+
+		if (Secret == true)
+		{
+			if (Input.GetKey(KeyCode.V))
+			{
+				WeaponE0.SetActive (true);
+				WeaponE1.SetActive (true);
+				WeaponE2.SetActive (true);
+				WeaponE3.SetActive (true);
 			}
 		}
 	}

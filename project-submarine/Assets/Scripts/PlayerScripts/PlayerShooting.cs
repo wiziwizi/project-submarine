@@ -29,7 +29,10 @@ public class PlayerShooting : MonoBehaviour {
 		hit = new RaycastHit(); 
 		nextFireTime = 0;
 		audioSource = GetComponent<AudioSource>();
-		particleEmission = particles.GetComponent<ParticleSystem> ();
+		if (particles != null)
+		{
+			particleEmission = particles.GetComponent<ParticleSystem> ();
+		}
 	}
 
 	void Update()
@@ -43,12 +46,13 @@ public class PlayerShooting : MonoBehaviour {
 			if (Input.GetMouseButton (0) && (Time.time >= nextFireTime))
 			{
 				Shoot ();
-				particleEmission.Play ();
 			}
 			if (!Input.GetMouseButton (0))
 			{
-				particleEmission.Stop ();
-				particleEmission.Clear ();
+				if (particleEmission != null)
+				{
+					particleEmission.Pause ();
+				}
 			}
 		}
 	}
@@ -66,6 +70,10 @@ public class PlayerShooting : MonoBehaviour {
 	}
 	private void Shoot()
 	{
+		if (particleEmission != null)
+		{
+			particleEmission.Play ();
+		}
 		GameObject obj = NewObjectPooler.current.GetPooledObject ();
 		if (obj == null) return;
 		obj.transform.position = muzzle.position;

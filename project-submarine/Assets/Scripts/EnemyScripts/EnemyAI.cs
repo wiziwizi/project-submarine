@@ -41,7 +41,7 @@ public class EnemyAI : MonoBehaviour {
 			MoveSpeed = BackSpeed;
 			PlayerHealth.health -= Damage;
 			playerHit = false;
-			Invoke ("Reverse", 0.2f);
+			Invoke ("Reverse", 0.4f);
 		}
 	}
 
@@ -64,7 +64,7 @@ public class EnemyAI : MonoBehaviour {
 		if(other.CompareTag("Shield"))
 		{
 			MoveSpeed = BackSpeed;
-			Invoke ("Reverse", 0.2f);
+			Invoke ("Reverse", 0.4f);
 		}
 	}
 

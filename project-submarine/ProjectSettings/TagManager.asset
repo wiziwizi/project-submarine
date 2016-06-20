@@ -12,6 +12,7 @@ TagManager:
   - enviroment
   - Shop
   - Force
+  - Secret
   layers:
   - Default
   - TransparentFX

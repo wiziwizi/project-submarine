@@ -31,6 +31,6 @@ public class Pauze : MonoBehaviour {
 	}
 	public void Exit()
 	{
-		Application.Quit ();
+		SceneManager.LoadScene ("MenuScene");
 	}
 }

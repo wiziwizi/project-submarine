@@ -48,7 +48,7 @@ public class _Spawner : MonoBehaviour {
 		Debug.Log ("Enemies" +gos.Length);
 		if (gos.Length == 1)
 		{
-			Debug.Log ("Nextwave5");
+			UIController.NextWaveBool = true;
 			Invoke ("TimeDelay", 5f);
 		}
 
@@ -64,8 +64,7 @@ public class _Spawner : MonoBehaviour {
 		Debug.Log ("Nextwave");
 		currentWaveNumber++;
 		WaveNumber = currentWaveNumber;
-		NextWaveBool = true;
-
+		UIController.NextWaveBool = false;
 
 		if (currentWaveNumber - 1 < waves.Length)
 		{
@@ -75,8 +74,6 @@ public class _Spawner : MonoBehaviour {
 			enemiesRemainingAlive = enemiesRemainingToSpawn;
 
 		}
-
-		NextWaveBool = false;
 	}
 
 	[System.Serializable]
